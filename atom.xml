@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[teppeeeのブログ]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://teppeee.github.io/"/>
+  <updated>2014-12-07T21:45:24.647Z</updated>
+  <id>http://teppeee.github.io/</id>
+  
+  <author>
+    <name><![CDATA[teppeee]]></name>
+    
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ブログを作るまで(GithubPages+HEXO)]]></title>
+    <link href="http://teppeee.github.io/2014/12/03/GithubPages-Hexo/"/>
+    <id>http://teppeee.github.io/2014/12/03/GithubPages-Hexo/</id>
+    <published>2014-12-03T05:11:42.000Z</published>
+    <updated>2014-12-03T12:52:40.000Z</updated>
+    <content type="html"><![CDATA[<p>このブログですがGithubPages+HEXOで作成しました。<br>最近のブログはGitHubPagesと静的サイトジェネレーターを使って作るのが流行らしいです。<br>この方法のデメリットの大部分が技術者でないと難しいという内容だったため<br>そこはクリアできると判断。いちおうプログラマーなので・・</p>
+<p>静的サイトジェネレーターもいろいろありますね。</p>
+<ul>
+<li><a href="http://matome.naver.jp/odai/2138951779950545401" target="_blank" rel="external">静的サイトジェネレータ（Static Site Generator）まとめ</a></li>
+</ul>
+<ul>
+<li><a href="https://staticsitegenerators.net/" target="_blank" rel="external">Static Site Generators</a></li>
+</ul>
+<p>一番人気はJekyllでそれをブログ用に拡張したのが<br>Octopressのようです。</p>
+<p>まずはOctopressでと思い調べてみると<br>重くてmiddlemanに乗り換えたという記事がやたらと出てきました。</p>
+<p>middlemanはRuby使える人にとっては拡張しやすくてよさそうですが、<br>テーマ等はあまりなく、自分でデザインしないといけないようです。</p>
+<p>そんな中、<br><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！</a></p>
+<p>の記事を見て、Node.jsもインストールされているし<br>JavaScriptのほうがまだ使えるので良さそうに思いました。<br>Documentもそこそこあるようです。</p>
+<h2 id="ハマったところ">ハマったところ</h2>
+<p>基本的に<a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">「所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！」</a><br>の記事通りでいけますが、<br>Githubへのdeployがうまくいきませんでした。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">hexo</span> deploy -g</div></pre></td></tr></table></figure>
+
+<p>で<br>[info] Deploy done:github<br>となったがdeployされておらず</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">hexo</span> deploy</div></pre></td></tr></table></figure>
+
+<p>とすると</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">Error</span>: <span class="tag">spawn</span> <span class="tag">ENOENT</span></div><div class="line">    <span class="tag">at</span> <span class="tag">errnoException</span> (<span class="tag">child_process</span><span class="class">.js</span><span class="pseudo">:980</span><span class="pseudo">:11)</span></div><div class="line">    <span class="tag">at</span> <span class="tag">Process</span><span class="class">.ChildProcess</span><span class="class">._handle</span><span class="class">.onexit</span> (<span class="tag">child_process</span><span class="class">.js</span><span class="pseudo">:771</span><span class="pseudo">:34)</span></div></pre></td></tr></table></figure>
+
+<p>エラーができました。</p>
+<p>いろいろ調べたところ・・・</p>
+<p>GitにPATHが通ってませんでした。<br>初歩的な分ハマった。。</p>
+<p>気をとりなして</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">hexo</span> deploy</div></pre></td></tr></table></figure>
+
+<p>すると</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Permission denied (publickey).</div><div class="line">fatal: Could <span class="operator">not</span> <span class="built_in">read</span> <span class="built_in">from</span> remote repository.</div><div class="line"></div><div class="line">Please make sure you have <span class="operator">the</span> correct access rights</div><div class="line"><span class="operator">and</span> <span class="operator">the</span> repository exists.</div></pre></td></tr></table></figure>
+
+<p>次はsshのエラーがでました。</p>
+<p>C:\Users\（ユーザー名）\.sshのフォルダを作って<br>id_rsa　というファイル名で秘密鍵<br>id_rsa.pub というファイル名で公開鍵を保存します。</p>
+<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">puttygen.exe</a>を使う場合はmsysgitのSSHはOpenSSHなので<br>秘密鍵はメニューの「変換」→「OpenSSH形式へエクスポート」で保存<br>公開鍵は　テキストエリア「OpenSSHのauthorized_keysファイルに･･･」をコピペで保存</p>
+<p>　</p>
+<p>これで</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> &lt;title&gt;</div></pre></td></tr></table></figure>
+
+<p>で記事を作って<br>source\_posts　のmdファイルを編集し</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">hexo</span> deploy -g</div></pre></td></tr></table></figure>
+
+<p>で公開できる環境ができました。</p>
+<p>まだまだ機能が少ないので調査しつつ足していく予定です。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>このブログですがGithubPages+HEXOで作成しました。<br>最近のブログはGitHubPagesと静的サイトジェネレーターを使って作るのが流行らしいです。<br>この方法のデメリットの大部分が技術者でないと難しいという内容だったため<br>そこはクリアできると判]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://teppeee.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ブログ開始]]></title>
+    <link href="http://teppeee.github.io/2014/12/01/start/"/>
+    <id>http://teppeee.github.io/2014/12/01/start/</id>
+    <published>2014-11-30T22:13:35.000Z</published>
+    <updated>2014-12-03T12:35:51.000Z</updated>
+    <content type="html"><![CDATA[<p>技術的に興味関心のあることを発信し</p>
+<p>みなさまの選択の幅を少しでも広げれればと思います。</p>
+<p>普段はC#.NETで開発をしていますが、<br>Microsoftもオープンソースな部分が増えましたし、<br>C#の良さを少しでも広めたいという思いもあります。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>技術的に興味関心のあることを発信し</p>
+<p>みなさまの選択の幅を少しでも広げれればと思います。</p>
+<p>普段はC#.NETで開発をしていますが、<br>Microsoftもオープンソースな部分が増えましたし、<br>C#の良さを少しでも広めたいという思いもありま]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
