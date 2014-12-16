@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2014-12-16T18:13:23.471Z</updated>
+  <updated>2014-12-16T18:17:34.158Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2014/12/17/about-hexo1/"/>
     <id>http://teppeee.github.io/2014/12/17/about-hexo1/</id>
     <published>2014-12-16T17:12:47.000Z</published>
-    <updated>2014-12-16T18:12:56.000Z</updated>
+    <updated>2014-12-16T18:17:28.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Documentation">Documentation</h2>
 <ul>
 <li><a href="http://hexo.io/docs/" target="_blank" rel="external">http://hexo.io/docs/</a></li>
@@ -36,11 +36,11 @@
 <p>まず_config.yml で</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">post_asset_folder</span>: <span class="string">true</span></div></pre></td></tr></table></figure>
 
-<p>の設定</p>
+<p>を設定</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> &lt;title&gt;</div></pre></td></tr></table></figure>
 
 <p>で\source_posts\の中にtitleフォルダができるので画像をいれれば使えます。</p>
-<p><img src=".\about-hexo1\ff_x_m1_019.JPG" alt="ff_x_m1_019.JPG"></p>
+<p><img src="ff_x_m1_019.JPG" alt="ff_x_m1_019.JPG"></p>
 <p>これだけあればブログは書けそうです。</p>
 <h2 id="Google_Analytics設定">Google Analytics設定</h2>
 <p>_config.ymlで</p>
@@ -53,7 +53,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
 
 <p>でローカルでサーバー起動して記事の確認ができますが、<br>編集した内容がリアルタイムで反映されるようです。</p>
-<p><img src=".\about-hexo1\hexo_server_sample.png" alt="hexo_server_sample.png"></p>
+<p><img src="hexo_server_sample.png" alt="hexo_server_sample.png"></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="Documentation">Documentation</h2>
