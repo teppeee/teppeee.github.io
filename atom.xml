@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2014-12-16T18:24:26.376Z</updated>
+  <updated>2014-12-22T17:47:38.847Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Markdown記法]]></title>
+    <link href="http://teppeee.github.io/2014/12/23/markdown/"/>
+    <id>http://teppeee.github.io/2014/12/23/markdown/</id>
+    <published>2014-12-22T17:44:57.000Z</published>
+    <updated>2014-12-22T17:46:15.000Z</updated>
+    <content type="html"><![CDATA[<p>Markdownで書かれた文書見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり<br>このブログもマークダウンで書かれています。<br>Redmineも2.5で対応しました。</p>
+<p>私も以前はメモをただのテキストで書いていましたが<br>最近はMarkdownを使っています。<br>文書が構造化されて見やすくなりますし、まとまります。<br>コードが綺麗に見えるのがいいですね。</p>
+<h2 id="Markdownとは">Markdownとは</h2>
+<p>どんなものかはこちらを参照</p>
+<ul>
+<li><p><a href="http://kojika17.com/2013/01/starting-markdown.html" target="_blank" rel="external">文章作成やメモ書きにも便利、Markdown記法</a></p>
+</li>
+<li><p><a href="http://qiita.com/Qiita/items/c686397e4a0f4f11683d" target="_blank" rel="external">Markdown記法 チートシート</a></p>
+</li>
+</ul>
+<h2 id="エディタ">エディタ</h2>
+<p>簡単に書けると言ってもエディタのサポートが欲しいです。<br>Macは<a href="http://kobito.qiita.com/ja" target="_blank" rel="external">kobito</a>が使えるので羨ましい。</p>
+<p>Windowsはこれといったのがないですね。</p>
+<ul>
+<li><a href="http://pad.haroopress.com/" target="_blank" rel="external">haroopad</a><br>記法ヘルプつきで初心者にはやさしいです<br>わたしはこれ使っています。<br>コードブロックでQiita Markdownのようにファイル名を指定するとプレビューできなくなります。</li>
+</ul>
+<ul>
+<li><p><a href="https://atom.io/" target="_blank" rel="external">atom</a><br>Github製エディタ<br>通常エディタとしてはまだ安定性にかけますが、Markdownエディタとしては使えます。</p>
+</li>
+<li><p><a href="http://qiita.com/tatesuke/items/a724c6da7284d72a0b1d" target="_blank" rel="external">Markdownを使うのに環境構築なんて不要!?</a><br>会社の人にもjsライブラリを教えてもらいましたが、<br>こういう方法もあるみたい。</p>
+</li>
+</ul>
+<h2 id="方言の問題がある">方言の問題がある</h2>
+<p>仕様が定まっていないです。<br>標準化の動きはあるようです。</p>
+<p> <a href="http://www.infoq.com/jp/news/2014/09/markdown-commonmark" target="_blank" rel="external">Standard MarkdownがCommon Markdow、そしてCommonMarkに</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Markdownで書かれた文書見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり<br>このブログもマークダウンで書かれています。<br>Redmineも2.5で対応しました。</p>
+<p>私も以前はメモをただのテキストで書いてい]]>
+    </summary>
+    
+      <category term="Markdown" scheme="http://teppeee.github.io/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HEXOについて]]></title>
