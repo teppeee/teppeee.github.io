@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2014-12-22T17:47:38.847Z</updated>
+  <updated>2014-12-22T17:49:30.782Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://teppeee.github.io/2014/12/23/markdown/"/>
     <id>http://teppeee.github.io/2014/12/23/markdown/</id>
     <published>2014-12-22T17:44:57.000Z</published>
-    <updated>2014-12-22T17:46:15.000Z</updated>
-    <content type="html"><![CDATA[<p>Markdownで書かれた文書見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり<br>このブログもマークダウンで書かれています。<br>Redmineも2.5で対応しました。</p>
+    <updated>2014-12-22T17:49:23.000Z</updated>
+    <content type="html"><![CDATA[<p>Markdownで書かれた文書を見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり、Redmineも2.5で対応しました。<br>このブログもMarkdownで書かれています。</p>
 <p>私も以前はメモをただのテキストで書いていましたが<br>最近はMarkdownを使っています。<br>文書が構造化されて見やすくなりますし、まとまります。<br>コードが綺麗に見えるのがいいですね。</p>
 <h2 id="Markdownとは">Markdownとは</h2>
 <p>どんなものかはこちらを参照</p>
@@ -47,7 +47,7 @@
 <p> <a href="http://www.infoq.com/jp/news/2014/09/markdown-commonmark" target="_blank" rel="external">Standard MarkdownがCommon Markdow、そしてCommonMarkに</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Markdownで書かれた文書見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり<br>このブログもマークダウンで書かれています。<br>Redmineも2.5で対応しました。</p>
+    <![CDATA[<p>Markdownで書かれた文書を見る機会が増えてきました。<br>GitHubのREADMEであったり、Qiitaであったり、Redmineも2.5で対応しました。<br>このブログもMarkdownで書かれています。</p>
 <p>私も以前はメモをただのテキストで書いてい]]>
     </summary>
     
