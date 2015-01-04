@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-04T09:12:31.486Z</updated>
+  <updated>2015-01-04T13:07:02.247Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://teppeee.github.io/2015/01/04/windows8-userfolder/"/>
     <id>http://teppeee.github.io/2015/01/04/windows8-userfolder/</id>
     <published>2015-01-04T07:27:43.000Z</published>
-    <updated>2015-01-04T09:05:36.000Z</updated>
-    <content type="html"><![CDATA[<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
-<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
+    <updated>2015-01-04T13:06:38.000Z</updated>
+    <content type="html"><![CDATA[<p>あけましておめでとうございます。<br>今年のまず最初にやるのはWindowsのフォルダ名の修正です。</p>
+<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>単純にユーザー名変更では変更することができません。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。　<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 <a id="more"></a>
 
 <h2 id="変更方法">変更方法</h2>
@@ -36,8 +36,8 @@
 </ol>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
-<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
+    <![CDATA[<p>あけましておめでとうございます。<br>今年のまず最初にやるのはWindowsのフォルダ名の修正です。</p>
+<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>単純にユーザー名変更では変更することができません。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。　<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 ]]>
     
     </summary>
@@ -96,7 +96,7 @@
     <link href="http://teppeee.github.io/2014/12/17/about-hexo1/"/>
     <id>http://teppeee.github.io/2014/12/17/about-hexo1/</id>
     <published>2014-12-16T17:12:47.000Z</published>
-    <updated>2015-01-04T09:04:23.000Z</updated>
+    <updated>2015-01-04T13:02:43.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Documentation">Documentation</h2>
 <ul>
 <li><a href="http://hexo.io/docs/" target="_blank" rel="external">http://hexo.io/docs/</a></li>
@@ -127,7 +127,7 @@
 
 <p>\themes\apollo の中にも_config.ymlがあり、<br>設定しても反映されなくて何度もレイアウトファイル見直してしまいました。。</p>
 <h2 id="レイアウト調整">レイアウト調整</h2>
-<p>\themes\apollo\layoutをいぢる</p>
+<p>\themes\apollo\layoutをいぢる<br>テーマによっては<code>&lt;!-- more --&gt;</code>を記事本文にいれることで<br>全文表示しなくなります。</p>
 <h2 id="その他">その他</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure>
 
