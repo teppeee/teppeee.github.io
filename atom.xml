@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2014-12-22T17:49:30.782Z</updated>
+  <updated>2015-01-04T07:49:41.467Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,35 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://teppeee.github.io/2015/01/04/windows8-userfolder/"/>
+    <id>http://teppeee.github.io/2015/01/04/windows8-userfolder/</id>
+    <published>2015-01-04T07:27:43.000Z</published>
+    <updated>2015-01-04T07:49:30.000Z</updated>
+    <content type="html"><![CDATA[<p>title: Windows8でユーザーのフォルダが日本語になってしまう<br>date: 2015-01-04 16:27:43<br>tags:</p>
+<h2 id="-Windows8">-Windows8</h2>
+<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
+<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
+<h2 id="変更方法">変更方法</h2>
+<ol>
+<li>Winキー検索　→　PC設定　→　アカウント　→　関連付けを解除<br>ローカルアカウントの切り替え画面がでるので変更したい日本語でないアカウント名にする。<br><img src="https://teppeee.github.io/2015/01/04/windows8-userfolder/localaccount.png" alt="localaccount.png"></li>
+<li>1.とは別にローカルアカウントで管理者権限のアカウントを作成</li>
+<li>再起動して2. で作成したアカウントでログイン</li>
+<li>元の「C:\Users」の日本語ユーザーのフォルダを1.のアカウント名にリネーム<br>(リネームできない場合は掴んでいるプロセスがいるので終了させます。)</li>
+<li>regeditを開いて、「HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\」の該当アカウントの「ProfileImagePath 」<br>を開き、Usersフォルダ名をリネームします。</li>
+<li>ログアウト後、リネームしたユーザでログインして<br>ユーザー環境変数で日本語フォルダ名のままのものがある場合は修正</li>
+<li>PC設定より再度Microsoftアカウントに関連付けて終了</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>title: Windows8でユーザーのフォルダが日本語になってしまう<br>date: 2015-01-04 16:27:43<br>tags:</p>
+<h2 id="-Windows8">-Windows8</h2>
+<p>あけましておめでとうございます。<br>今]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Markdown記法]]></title>
