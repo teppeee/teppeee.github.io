@@ -1,99 +1,80 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
   <title>Windows8でユーザーのフォルダが日本語になってしまう | teppeeeのブログ</title>
-  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="teppeee">
+  
   <meta name="description" content="あけましておめでとうございます。今年もいろいろ始める前にまず自PCの設定を修正します。
-Windows8のインストール時にMicrosoftアカウントでアカウント設定をするとUsersに日本語名でフォルダができてしまいます。ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、修正方法を調べてみました。いろいろでてきますが、自分がした方法をまとめます。(Windows8.1でM">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Windows8でユーザーのフォルダが日本語になってしまう">
-<meta property="og:url" content="http://teppeee.github.io/2015/01/04/windows8-userfolder/">
-<meta property="og:site_name" content="teppeeeのブログ">
-<meta property="og:description" content="あけましておめでとうございます。今年もいろいろ始める前にまず自PCの設定を修正します。
-Windows8のインストール時にMicrosoftアカウントでアカウント設定をするとUsersに日本語名でフォルダができてしまいます。ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、修正方法を調べてみました。いろいろでてきますが、自分がした方法をまとめます。(Windows8.1でM">
-<meta property="og:image" content="https://teppeee.github.io/2015/01/04/windows8-userfolder/localaccount.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows8でユーザーのフォルダが日本語になってしまう">
-<meta name="twitter:description" content="あけましておめでとうございます。今年もいろいろ始める前にまず自PCの設定を修正します。
-Windows8のインストール時にMicrosoftアカウントでアカウント設定をするとUsersに日本語名でフォルダができてしまいます。ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、修正方法を調べてみました。いろいろでてきますが、自分がした方法をまとめます。(Windows8.1でM">
+Windows8のインストール時にMicrosoftアカウントでアカウント設定をするとUsersに日本語名でフォルダができてしまいます。ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、修">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Windows8でユーザーのフォルダが日本語になってしまう"/>
+  <meta property="og:site_name" content="teppeeeのブログ"/>
 
   
-    <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+    <meta property="og:image" content="undefined"/>
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 <script type="text/javascript">
   var _gaq = _gaq || [];
-  var pluginUrl = 
-   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
   _gaq.push(['_setAccount', 'UA-57669979-1']);
+  
   _gaq.push(['_trackPageview']);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
 
 
 </head>
+
+
 <body>
-  <div id="container">
-    <div class="mobile-nav-panel">
-	<i class="icon-reorder icon-large"></i>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">teppeeeのブログ</a></h1>
+  <h2><a href="/"></a></h2>
 </div>
-<header id="header">
-	<h1 class="blog-title">
-		<a href="/">teppeeeのブログ</a>
-	</h1>
-	<nav class="nav">
-		<ul>
-			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
-			
-			<!--<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>-->
-			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
-		</ul>
-	</nav>
-	<div id="search-form-wrap">
-		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://teppeee.github.io"></form>
-	</div>
-</header>
-    <div id="main">
-      <article id="post-windows8-userfolder" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2015/01/04/windows8-userfolder/" class="article-date">
-  <time datetime="2015-01-04T07:27:43.000Z" itemprop="datePublished">Jan 4 2015</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
-    <h1 class="article-title entry-title" itemprop="name">
-      Windows8でユーザーのフォルダが日本語になってしまう
-    </h1>
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-04T07:27:43.000Z"><a href="/2015/01/04/windows8-userfolder/">Jan 4 2015</a></time>
+      
+      
+  
+    <h1 class="title">Windows8でユーザーのフォルダが日本語になってしまう</h1>
   
 
-	</header>
-	<div class="entry-content">
-		
-    	<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
+    </header>
+    <div class="entry">
+      
+        <p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
 <p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 <h2 id="変更方法">変更方法</h2>
 <ol>
@@ -106,71 +87,81 @@ Windows8のインストール時にMicrosoftアカウントでアカウント設
 <li>PC設定より再度Microsoftアカウントに関連付けて終了</li>
 </ol>
 
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows8/">Windows8</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2014/12/23/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">
+      
+    </div>
+    <footer>
+      
         
-          Markdown記法
         
-      </div>
-    </a>
   
-</nav>
+  <div class="tags">
+    <a href="/tags/Windows8/">Windows8</a>
+  </div>
 
-  
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
 </article>
 
 
+<section id="comment">
+  <h1 class="title">Comments</h1>
 
+  
+</section>
 
-
-    </div>
-    <div class="mb-search">
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:teppeee.github.io">
   </form>
 </div>
-<footer id="footer">
-	<h1 class="footer-blog-title">
-		<a href="/">teppeeeのブログ</a>
-	</h1>
-	<span class="copyright">
-		&copy; 2015 teppeee<br>
-		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
-		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-	</span>
-</footer>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Advent-Calendar/">Advent Calendar</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/Windows8/">Windows8</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 teppeee
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
 
-
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
 </body>
 </html>
