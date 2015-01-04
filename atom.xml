@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-04T07:49:41.467Z</updated>
+  <updated>2015-01-04T07:59:16.553Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -15,14 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[]]></title>
+    <title><![CDATA[Windows8でユーザーのフォルダが日本語になってしまう]]></title>
     <link href="http://teppeee.github.io/2015/01/04/windows8-userfolder/"/>
     <id>http://teppeee.github.io/2015/01/04/windows8-userfolder/</id>
     <published>2015-01-04T07:27:43.000Z</published>
-    <updated>2015-01-04T07:49:30.000Z</updated>
-    <content type="html"><![CDATA[<p>title: Windows8でユーザーのフォルダが日本語になってしまう<br>date: 2015-01-04 16:27:43<br>tags:</p>
-<h2 id="-Windows8">-Windows8</h2>
-<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
+    <updated>2015-01-04T07:58:47.000Z</updated>
+    <content type="html"><![CDATA[<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
 <p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 <h2 id="変更方法">変更方法</h2>
 <ol>
@@ -36,10 +34,11 @@
 </ol>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>title: Windows8でユーザーのフォルダが日本語になってしまう<br>date: 2015-01-04 16:27:43<br>tags:</p>
-<h2 id="-Windows8">-Windows8</h2>
-<p>あけましておめでとうございます。<br>今]]>
+    <![CDATA[<p>あけましておめでとうございます。<br>今年もいろいろ始める前にまず自PCの設定を修正します。</p>
+<p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>ずっと放置し]]>
     </summary>
+    
+      <category term="Windows8" scheme="http://teppeee.github.io/tags/Windows8/"/>
     
   </entry>
   
