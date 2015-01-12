@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-12T15:03:43.524Z</updated>
+  <updated>2015-01-12T15:25:32.867Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/01/12/inteliJ-go/"/>
     <id>http://teppeee.github.io/2015/01/12/inteliJ-go/</id>
     <published>2015-01-12T14:34:46.000Z</published>
-    <updated>2015-01-12T15:03:37.000Z</updated>
+    <updated>2015-01-12T15:25:23.000Z</updated>
     <content type="html"><![CDATA[<p>社内のプロジェクトでGCEを使っているものがあり、<br>GAEもよさそうだと思い調べていましたが、<br>せっかくなので気になっているGo言語で使ってみようと思います。<br>２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。<br>無料の範囲でいろいろできそうです。</p>
 <p><strong><a href="https://cloud.google.com/appengine/?hl=ja" target="_blank" rel="external">AppEngine</a></strong></p>
 <a id="more"></a>
@@ -50,7 +50,7 @@
 <h2 id="2-_プラグインのダウンロード">2. プラグインのダウンロード</h2>
 <p>最近リリースされたGo1.4に対応する最新版のプラグインをダウンロード<br><a href="https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases" target="_blank" rel="external">https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases</a></p>
 <h2 id="3-_プラグインの設定">3. プラグインの設定</h2>
-<p>Settings → Plugins →　ダウンロードしたJarファイル指定<br><img src="(http://teppeee.github.io/img/goplugin.jpg" alt="goplugin.jpg"></p>
+<p>Settings → Plugins →　ダウンロードしたJarファイル指定<br><img src="http://teppeee.github.io/img/goplugin.jpg" alt="goplugin.jpg"></p>
 <h2 id="4-_プロジェクト作成でGoが選べる">4. プロジェクト作成でGoが選べる</h2>
 <p><img src="http://teppeee.github.io/img/newproject.png" alt="newproject.png"><br>SDKの設定は環境変数のGOROOT(C:\Go)</p>
 <h2 id="5-_go_getで取得したソースの補完設定">5. go getで取得したソースの補完設定</h2>
