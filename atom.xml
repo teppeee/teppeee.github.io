@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-04T13:08:37.099Z</updated>
+  <updated>2015-01-12T14:48:05.032Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -15,12 +15,68 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[IntelliJ IDEAでGoの開発環境をつくる]]></title>
+    <link href="http://teppeee.github.io/2015/01/12/inteliJ-go/"/>
+    <id>http://teppeee.github.io/2015/01/12/inteliJ-go/</id>
+    <published>2015-01-12T14:34:46.000Z</published>
+    <updated>2015-01-12T14:47:18.000Z</updated>
+    <content type="html"><![CDATA[<p>社内のプロジェクトでGCEを使っているものがあり、<br>GAEもよさそうだと思い調べていましたが、<br>せっかくなので気になっているGo言語で使ってみようと思います。<br>２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。<br>無料の範囲でいろいろできそうです。</p>
+<p><strong><a href="https://cloud.google.com/appengine/?hl=ja" target="_blank" rel="external">AppEngine</a></strong></p>
+<a id="more"></a>
+
+<h3 id="まずはGo言語について簡単に">まずはGo言語について簡単に</h3>
+<p>Go言語は2009年にGoogleによって作られたオープンソースの静的言語で、Linux・Mac・WindowsやAndroidで動作します。最近ではGoogle App Engineで使うこともできます。</p>
+<p><a href="http://golang.jp/about_go" target="_blank" rel="external">golang.jp</a>より</p>
+<blockquote>
+<ul>
+<li>シンプルな言語である。</li>
+<li>コンパイル・実行速度が早い。</li>
+<li>安全性が高い。</li>
+<li>同期処理が容易に行える。</li>
+<li>なにより楽しい。</li>
+<li>オープンソースである。#InteliJ IDEA でGo言語の開発環境をつくる</li>
+</ul>
+</blockquote>
+<h4 id="学習ソース">学習ソース</h4>
+<ul>
+<li><a href="http://go-tour-jp.appspot.com/" target="_blank" rel="external">A Tour of Go</a><br>やるだけでかなり基礎を学べる</li>
+<li><a href="http://golang.jp/about_go" target="_blank" rel="external">golang.jp</a><br>「Goを学ぶ」のメニューより</li>
+</ul>
+<p>IDE厨なのでIDEの環境設定から始めます。<br>普段C#でVSを使っているので、IntelliJ IDEAが一番手に馴染みそうです。</p>
+<p><a href="http://qiita.com/kaiinui/items/433eb86c022ffcad0bea" target="_blank" rel="external">Go の開発環境は IntelliJ IDEA + golang plugin がマトモだった</a><br>を元にIntelJ IDEAを使ってみます。</p>
+<p>Windowsだと思っていたより簡単でした。</p>
+<h2 id="1-_InteliJ_IDEAダウンロード">1. InteliJ IDEAダウンロード</h2>
+<p>無料のコミュニティエディションをダウンロード<br><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="external">https://www.jetbrains.com/idea/download/</a></p>
+<h2 id="2-_プラグインのダウンロード">2. プラグインのダウンロード</h2>
+<p>最近リリースされたGo1.4に対応する最新版のプラグインをダウンロード<br><a href="https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases" target="_blank" rel="external">https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases</a></p>
+<h2 id="3-_プラグインの設定">3. プラグインの設定</h2>
+<p>Settings → Plugins →　ダウンロードしたJarファイル指定<br><img src=".\img\goplugin.jpg" alt="goplugin.jpg"></p>
+<h2 id="4-_プロジェクト作成でGoが選べる">4. プロジェクト作成でGoが選べる</h2>
+<p><img src=".\img\newproject.png" alt="newproject.png"><br>SDKの設定は環境変数のGOROOT(C:\Go)</p>
+<h2 id="5-_go_getで取得したソースの補完設定">5. go getで取得したソースの補完設定</h2>
+<p>goのよいところで<code>go get</code>で簡単にgithubなどに置いてある<br>オープンソースライブラリをとってきて使うことができます。<br>とってきたパッケージは環境変数のGOPATHで指定しているパスに入るようです。<br>そのままだと補完が効かないので<br>file →　Project Structure →　SoucePath<br>でGOPATH/srcを設定します。</p>
+<p>最近保存時のgo fmtに対応したようで、自動で整形してくれます。<br>IntelliJ IDEAは使ったことなかったですが、なかなか便利です。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>社内のプロジェクトでGCEを使っているものがあり、<br>GAEもよさそうだと思い調べていましたが、<br>せっかくなので気になっているGo言語で使ってみようと思います。<br>２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。<br>無料の範囲でいろいろできそうです。</p>
+<p><strong><a href="https://cloud.google.com/appengine/?hl=ja" target="_blank" rel="external">AppEngine</a></strong></p>
+]]>
+    
+    </summary>
+    
+      <category term="IntelliJIDEA" scheme="http://teppeee.github.io/tags/IntelliJIDEA/"/>
+    
+      <category term="Go言語" scheme="http://teppeee.github.io/tags/Go%E8%A8%80%E8%AA%9E/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Windows8でユーザーのフォルダ名が日本語になっている問題]]></title>
     <link href="http://teppeee.github.io/2015/01/04/windows8-userfolder/"/>
     <id>http://teppeee.github.io/2015/01/04/windows8-userfolder/</id>
     <published>2015-01-04T07:27:43.000Z</published>
-    <updated>2015-01-04T13:08:14.000Z</updated>
-    <content type="html"><![CDATA[<p>あけましておめでとうございます。<br>今年のまず最初にやるのはWindowsのフォルダ名の修正です。</p>
+    <updated>2015-01-12T14:45:34.000Z</updated>
+    <content type="html"><![CDATA[<p>あけましておめでとうございます。<br>今年まず最初にやるのはWindowsのフォルダ名の修正です。</p>
 <p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>単純にユーザー名変更では変更することができません。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。　<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 <a id="more"></a>
 
@@ -36,7 +92,7 @@
 </ol>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>あけましておめでとうございます。<br>今年のまず最初にやるのはWindowsのフォルダ名の修正です。</p>
+    <![CDATA[<p>あけましておめでとうございます。<br>今年まず最初にやるのはWindowsのフォルダ名の修正です。</p>
 <p>Windows8のインストール時にMicrosoftアカウントでアカウント設定をすると<br>Usersに日本語名でフォルダができてしまいます。<br>単純にユーザー名変更では変更することができません。<br>ずっと放置していましたが、海外製ライブラリで問題になることが多かったので、<br>修正方法を調べてみました。　<br>いろいろでてきますが、自分がした方法をまとめます。<br>(Windows8.1でMicrosoftアカウントを使用している状態から)</p>
 ]]>
     

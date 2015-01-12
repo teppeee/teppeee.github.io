@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>IntelliJ IDEAでGoの開発環境をつくる | teppeeeのブログ</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="社内のプロジェクトでGCEを使っているものがあり、GAEもよさそうだと思い調べていましたが、せっかくなので気になっているGo言語で使ってみようと思います。２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。無料の範囲でいろいろできそうです。
+AppEngine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IntelliJ IDEAでGoの開発環境をつくる">
+<meta property="og:url" content="http://teppeee.github.io/2015/01/12/inteliJ-go/">
+<meta property="og:site_name" content="teppeeeのブログ">
+<meta property="og:description" content="社内のプロジェクトでGCEを使っているものがあり、GAEもよさそうだと思い調べていましたが、せっかくなので気になっているGo言語で使ってみようと思います。２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。無料の範囲でいろいろできそうです。
+AppEngine">
+<meta property="og:image" content=".\img\goplugin.jpg">
+<meta property="og:image" content=".\img\newproject.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IntelliJ IDEAでGoの開発環境をつくる">
+<meta name="twitter:description" content="社内のプロジェクトでGCEを使っているものがあり、GAEもよさそうだと思い調べていましたが、せっかくなので気になっているGo言語で使ってみようと思います。２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。無料の範囲でいろいろできそうです。
+AppEngine">
+
+  
+    <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-57669979-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			
+			<!--<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>-->
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://teppeee.github.io"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-inteliJ-go" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/01/12/inteliJ-go/" class="article-date">
+  <time datetime="2015-01-12T14:34:46.000Z" itemprop="datePublished">Jan 12 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      IntelliJ IDEAでGoの開発環境をつくる
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>社内のプロジェクトでGCEを使っているものがあり、<br>GAEもよさそうだと思い調べていましたが、<br>せっかくなので気になっているGo言語で使ってみようと思います。<br>２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。<br>無料の範囲でいろいろできそうです。</p>
+<p><strong><a href="https://cloud.google.com/appengine/?hl=ja" target="_blank" rel="external">AppEngine</a></strong></p>
+<a id="more"></a>
+
+<h3 id="まずはGo言語について簡単に">まずはGo言語について簡単に</h3>
+<p>Go言語は2009年にGoogleによって作られたオープンソースの静的言語で、Linux・Mac・WindowsやAndroidで動作します。最近ではGoogle App Engineで使うこともできます。</p>
+<p><a href="http://golang.jp/about_go" target="_blank" rel="external">golang.jp</a>より</p>
+<blockquote>
+<ul>
+<li>シンプルな言語である。</li>
+<li>コンパイル・実行速度が早い。</li>
+<li>安全性が高い。</li>
+<li>同期処理が容易に行える。</li>
+<li>なにより楽しい。</li>
+<li>オープンソースである。#InteliJ IDEA でGo言語の開発環境をつくる</li>
+</ul>
+</blockquote>
+<h4 id="学習ソース">学習ソース</h4>
+<ul>
+<li><a href="http://go-tour-jp.appspot.com/" target="_blank" rel="external">A Tour of Go</a><br>やるだけでかなり基礎を学べる</li>
+<li><a href="http://golang.jp/about_go" target="_blank" rel="external">golang.jp</a><br>「Goを学ぶ」のメニューより</li>
+</ul>
+<p>IDE厨なのでIDEの環境設定から始めます。<br>普段C#でVSを使っているので、IntelliJ IDEAが一番手に馴染みそうです。</p>
+<p><a href="http://qiita.com/kaiinui/items/433eb86c022ffcad0bea" target="_blank" rel="external">Go の開発環境は IntelliJ IDEA + golang plugin がマトモだった</a><br>を元にIntelJ IDEAを使ってみます。</p>
+<p>Windowsだと思っていたより簡単でした。</p>
+<h2 id="1-_InteliJ_IDEAダウンロード">1. InteliJ IDEAダウンロード</h2>
+<p>無料のコミュニティエディションをダウンロード<br><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="external">https://www.jetbrains.com/idea/download/</a></p>
+<h2 id="2-_プラグインのダウンロード">2. プラグインのダウンロード</h2>
+<p>最近リリースされたGo1.4に対応する最新版のプラグインをダウンロード<br><a href="https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases" target="_blank" rel="external">https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases</a></p>
+<h2 id="3-_プラグインの設定">3. プラグインの設定</h2>
+<p>Settings → Plugins →　ダウンロードしたJarファイル指定<br><img src=".\img\goplugin.jpg" alt="goplugin.jpg"></p>
+<h2 id="4-_プロジェクト作成でGoが選べる">4. プロジェクト作成でGoが選べる</h2>
+<p><img src=".\img\newproject.png" alt="newproject.png"><br>SDKの設定は環境変数のGOROOT(C:\Go)</p>
+<h2 id="5-_go_getで取得したソースの補完設定">5. go getで取得したソースの補完設定</h2>
+<p>goのよいところで<code>go get</code>で簡単にgithubなどに置いてある<br>オープンソースライブラリをとってきて使うことができます。<br>とってきたパッケージは環境変数のGOPATHで指定しているパスに入るようです。<br>そのままだと補完が効かないので<br>file →　Project Structure →　SoucePath<br>でGOPATH/srcを設定します。</p>
+<p>最近保存時のgo fmtに対応したようで、自動で整形してくれます。<br>IntelliJ IDEAは使ったことなかったですが、なかなか便利です。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJIDEA/">IntelliJIDEA</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/04/windows8-userfolder/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Windows8でユーザーのフォルダ名が日本語になっている問題
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:teppeee.github.io">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 teppeee<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
