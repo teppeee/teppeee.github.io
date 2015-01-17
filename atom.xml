@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-13T22:29:49.342Z</updated>
+  <updated>2015-01-17T23:46:00.904Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,83 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Google Cloud Platformについて簡単に]]></title>
+    <link href="http://teppeee.github.io/2015/01/18/google-cloud/"/>
+    <id>http://teppeee.github.io/2015/01/18/google-cloud/</id>
+    <published>2015-01-17T23:21:11.000Z</published>
+    <updated>2015-01-17T23:45:36.000Z</updated>
+    <content type="html"><![CDATA[<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
+<h2 id="App_Engine">App Engine</h2>
+<ul>
+<li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
+</li>
+<li><p>Python、Java、PHP、Goに対応</p>
+</li>
+<li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
+</li>
+<li><p>28 インスタンス時間時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
+</li>
+<li><p>タスクキューで定期的なタスクを実行できる。</p>
+</li>
+</ul>
+<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせである程度のことまではできそう。</p>
+<a id="more"></a>
+
+
+<h2 id="Cloud_Storage">Cloud Storage</h2>
+<ul>
+<li>ストレージ　<br>Googleドライブと何が違うのかというと</li>
+</ul>
+<blockquote>
+<p>Google ドライブはユーザー向けで、Google Cloud Storage はデベロッパー向けです。</p>
+</blockquote>
+<h2 id="Cloud_Datastore">Cloud Datastore</h2>
+<ul>
+<li><p>NoSQLのデータベース</p>
+</li>
+<li><p>Cloud Storageにバックアップを行うことができる。</p>
+</li>
+<li><p>操作回数に応じて課金される。<br>Memcache併用で課金を抑えられそう。</p>
+</li>
+</ul>
+<h2 id="Cloud_SQL">Cloud SQL</h2>
+<ul>
+<li><p>MySQL<br>コンソールからインスタンスを作ったりスペックを簡単に変更できる。</p>
+</li>
+<li><p>Cloud Datastore同様Cloud Storageにバックアップを行うことができる。</p>
+</li>
+</ul>
+<p>こういうの欲しかった！</p>
+<h2 id="Compute_Engine">Compute Engine</h2>
+<p>IaaS（Infrastructure-as-a-Service）<br>Googleのインフラ上にホストされている仮想マシン<br>App Engineでは足りない場合はこちらを使う。</p>
+<h2 id="BigQuery">BigQuery</h2>
+<p>最近注目のビッグデータ解析用</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
+<h2 id="App_Engine">App Engine</h2>
+<ul>
+<li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
+</li>
+<li><p>Python、Java、PHP、Goに対応</p>
+</li>
+<li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
+</li>
+<li><p>28 インスタンス時間時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
+</li>
+<li><p>タスクキューで定期的なタスクを実行できる。</p>
+</li>
+</ul>
+<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせである程度のことまではできそう。</p>
+]]>
+    
+    </summary>
+    
+      <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[IntelliJ IDEAでGoの開発環境をつくる]]></title>
