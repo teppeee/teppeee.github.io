@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-18T00:03:11.761Z</updated>
+  <updated>2015-01-18T00:08:54.540Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/01/18/google-cloud/"/>
     <id>http://teppeee.github.io/2015/01/18/google-cloud/</id>
     <published>2015-01-17T23:21:11.000Z</published>
-    <updated>2015-01-18T00:03:04.000Z</updated>
+    <updated>2015-01-18T00:08:50.000Z</updated>
     <content type="html"><![CDATA[<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
 <h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
 <ul>
@@ -34,7 +34,7 @@
 <li><p>タスクキューで定期的なタスクを実行できる。</p>
 </li>
 </ul>
-<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせである程度のことまではできそう。</p>
+<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせることである程度のことまではできそう。</p>
 <a id="more"></a>
 
 
@@ -67,7 +67,7 @@
 <ul>
 <li>IaaS（Infrastructure-as-a-Service）<br>Googleのインフラ上にホストされている仮想マシン<br>App Engineでは足りない場合はこちらを使う。</li>
 </ul>
-<p>最近<a href="https://cloud.google.com/container-engine/" target="_blank" rel="external">Container Engine（アルファ版）</a>というのができているようです。</p>
+<p>最近<a href="https://cloud.google.com/container-engine/" target="_blank" rel="external">Container Engine（アルファ版）</a>というのができたようです。</p>
 <h2 id="BigQuery"><a href="https://cloud.google.com/bigquery/" target="_blank" rel="external">BigQuery</a></h2>
 <p>最近注目のビッグデータ解析用<br>neue氏がC#からも使いやすくしてくれています。<br><a href="http://neue.cc/2014/09/24_479.html" target="_blank" rel="external">LINQ to BigQuery - C#による型付きDSLとLINQPadによるDumpと可視化</a></p>
 ]]></content>
@@ -86,7 +86,7 @@
 <li><p>タスクキューで定期的なタスクを実行できる。</p>
 </li>
 </ul>
-<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせである程度のことまではできそう。</p>
+<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせることである程度のことまではできそう。</p>
 ]]>
     
     </summary>
