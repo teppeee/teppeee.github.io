@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-17T23:46:00.904Z</updated>
+  <updated>2015-01-18T00:03:11.761Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://teppeee.github.io/2015/01/18/google-cloud/"/>
     <id>http://teppeee.github.io/2015/01/18/google-cloud/</id>
     <published>2015-01-17T23:21:11.000Z</published>
-    <updated>2015-01-17T23:45:36.000Z</updated>
+    <updated>2015-01-18T00:03:04.000Z</updated>
     <content type="html"><![CDATA[<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
-<h2 id="App_Engine">App Engine</h2>
+<h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
 <ul>
 <li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
 </li>
@@ -29,7 +29,7 @@
 </li>
 <li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
 </li>
-<li><p>28 インスタンス時間時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
+<li><p>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
 </li>
 <li><p>タスクキューで定期的なタスクを実行できる。</p>
 </li>
@@ -38,14 +38,15 @@
 <a id="more"></a>
 
 
-<h2 id="Cloud_Storage">Cloud Storage</h2>
+<h2 id="Cloud_Storage"><a href="https://cloud.google.com/storage/" target="_blank" rel="external">Cloud Storage</a></h2>
 <ul>
 <li>ストレージ　<br>Googleドライブと何が違うのかというと</li>
 </ul>
 <blockquote>
 <p>Google ドライブはユーザー向けで、Google Cloud Storage はデベロッパー向けです。</p>
 </blockquote>
-<h2 id="Cloud_Datastore">Cloud Datastore</h2>
+<p>とのこと</p>
+<h2 id="Cloud_Datastore"><a href="https://cloud.google.com/datastore/" target="_blank" rel="external">Cloud Datastore</a></h2>
 <ul>
 <li><p>NoSQLのデータベース</p>
 </li>
@@ -54,7 +55,7 @@
 <li><p>操作回数に応じて課金される。<br>Memcache併用で課金を抑えられそう。</p>
 </li>
 </ul>
-<h2 id="Cloud_SQL">Cloud SQL</h2>
+<h2 id="Cloud_SQL"><a href="https://cloud.google.com/sql/" target="_blank" rel="external">Cloud SQL</a></h2>
 <ul>
 <li><p>MySQL<br>コンソールからインスタンスを作ったりスペックを簡単に変更できる。</p>
 </li>
@@ -62,14 +63,17 @@
 </li>
 </ul>
 <p>こういうの欲しかった！</p>
-<h2 id="Compute_Engine">Compute Engine</h2>
-<p>IaaS（Infrastructure-as-a-Service）<br>Googleのインフラ上にホストされている仮想マシン<br>App Engineでは足りない場合はこちらを使う。</p>
-<h2 id="BigQuery">BigQuery</h2>
-<p>最近注目のビッグデータ解析用</p>
+<h2 id="Compute_Engine"><a href="https://cloud.google.com/compute/" target="_blank" rel="external">Compute Engine</a></h2>
+<ul>
+<li>IaaS（Infrastructure-as-a-Service）<br>Googleのインフラ上にホストされている仮想マシン<br>App Engineでは足りない場合はこちらを使う。</li>
+</ul>
+<p>最近<a href="https://cloud.google.com/container-engine/" target="_blank" rel="external">Container Engine（アルファ版）</a>というのができているようです。</p>
+<h2 id="BigQuery"><a href="https://cloud.google.com/bigquery/" target="_blank" rel="external">BigQuery</a></h2>
+<p>最近注目のビッグデータ解析用<br>neue氏がC#からも使いやすくしてくれています。<br><a href="http://neue.cc/2014/09/24_479.html" target="_blank" rel="external">LINQ to BigQuery - C#による型付きDSLとLINQPadによるDumpと可視化</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
-<h2 id="App_Engine">App Engine</h2>
+<h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
 <ul>
 <li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
 </li>
@@ -77,7 +81,7 @@
 </li>
 <li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
 </li>
-<li><p>28 インスタンス時間時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
+<li><p>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
 </li>
 <li><p>タスクキューで定期的なタスクを実行できる。</p>
 </li>
