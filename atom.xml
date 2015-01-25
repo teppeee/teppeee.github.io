@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-25T10:14:51.376Z</updated>
+  <updated>2015-01-25T20:07:33.559Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,15 +19,17 @@
     <link href="http://teppeee.github.io/2015/01/25/intelliJ-gaego/"/>
     <id>http://teppeee.github.io/2015/01/25/intelliJ-gaego/</id>
     <published>2015-01-25T09:57:17.000Z</published>
-    <updated>2015-01-25T10:11:39.000Z</updated>
+    <updated>2015-01-25T20:06:49.000Z</updated>
     <content type="html"><![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
 <a id="more"></a>
 
 <h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
 <p>チュートリアルにしたがって進めてみます。<br><a href="https://cloud.google.com/appengine/docs" target="_blank" rel="external">https://cloud.google.com/appengine/docs</a><br>の「try it now」ボタンより</p>
-<p><a href="https://cloud.google.com/sdk/" target="_blank" rel="external">SDK</a>をダウンロードします。<br>次のコマンドを使って Go 用 App Engine パッケージをインストールします:<br><code>gcloud components update gae-go</code></p>
-<p>言語別のSDK単体もありますが、管理ツールがついてくるこちらからインストールしたほうがよいです。<br>SDKはそのままのパスでProgram Filesにインストールすると<br>半角スペースが原因で<code>goapp serve</code>が動かないので注意です。</p>
-<p>GAE用のプロジェクトも作成します。ここで割り振られたプロジェクトIDをデプロイ時に使用します。</p>
+<p><a href="https://cloud.google.com/sdk/" target="_blank" rel="external">SDK</a>をダウンロードします。<br>次のコマンドを使って Go 用 App Engine パッケージをインストールします:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcloud components <span class="keyword">update</span> gae-<span class="keyword">go</span></div></pre></td></tr></table></figure>
+
+<p>言語別のSDK単体もありますが、<br>管理ツールがついてくるこちらからインストールしたほうがよいです。<br>SDKはそのままのパスでProgram Filesにインストールすると<br>半角スペースが原因で<code>goapp serve</code>が動かないので注意です。</p>
+<p>GAE用のプロジェクトも作成します。ここで割り振られた<br>プロジェクトIDをデプロイ時に使用します。</p>
 <p>あとは<br>SDKをインストールしたフォルダの中の\platform\google_appengine<br>にツール類があるのでパスを通します</p>
 <h2 id="IntelliJ_IDEAの設定">IntelliJ IDEAの設定</h2>
 <p>プロジェクトを作成します。<br>Create New Project &gt; Go App Engine　を選択します。</p>
@@ -57,12 +59,13 @@
 <p>まず<code>goapp deploy</code>してみましたが、認証がうまく通りませんでした。<br>SDKにGoogle App Engine Launcherというのがついているのでこれを使ってみます。</p>
 <p>File &gt; Add Existing Application で作ったプロジェクトを選択します。<br><img src="http://teppeee.github.io\img\sdklauncher.jpg" alt="sdklauncher.jpg"></p>
 <p>あとは「Deploy」ボタンをおしてGoogleアカウントのID・パスワードを入力すると<br>デプロイすることができました。</p>
-<p><a href="http://[your" target="_blank" rel="external">http://[your</a> project id].appspot.com/<br>にアクセスすると動いているのを確認することができます。</p>
+<p><code>http://｛your project id]｝.appspot.com/</code><br>にアクセスすると動いているのを確認することができます。</p>
 <h2 id="気になったところ">気になったところ</h2>
 <p>IntelliJ IDEA上でgo fmt等のツールがエラーになるようになっていました。</p>
 <p><img src="http://teppeee.github.io\img\fmterror.jpg" alt="fmterror.jpg"></p>
 <p>SDKをみてみるとgorootというフォルダがあり<br>SDK内にGOそのものを内包しており、GAEではこちらがGOROOTになるようです。</p>
-<p>IntelliJ IDEA　の　Setting &gt; Tools &gt; Google Goで<br>GOROOTにplatform\google_appengine\gorootを選択しようとしましたが<br>エラーになり選択できませんでした。<br>コマンドラインからは使えるので我慢しています。</p>
+<p>IntelliJ IDEA　の　Setting &gt; Tools &gt; Google Goで<br>GOROOTにplatform\google_appengine\gorootを選択しようとしましたが<br>エラーになり選択できませんでした。</p>
+<p>荒業ですが、<br>IntelliJ IDEAはplatform\google_appengine\の直下を見に行ってるようなので<br>platform\google_appengine\goroot\binのツール類(go fmt等)を<br>platform\google_appengine\にコピーしてやれば動きました。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
