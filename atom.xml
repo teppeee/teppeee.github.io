@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-25T20:07:33.559Z</updated>
+  <updated>2015-01-25T20:22:54.771Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/01/25/intelliJ-gaego/"/>
     <id>http://teppeee.github.io/2015/01/25/intelliJ-gaego/</id>
     <published>2015-01-25T09:57:17.000Z</published>
-    <updated>2015-01-25T20:06:49.000Z</updated>
+    <updated>2015-01-25T20:22:45.000Z</updated>
     <content type="html"><![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
 <a id="more"></a>
 
@@ -41,7 +41,7 @@
 <p><img src="http://teppeee.github.io\img\projectSDK.jpg" alt="projectSDK.jpg"></p>
 <p>ひな形のプロジェクトが作成されます。</p>
 <p><img src="http://teppeee.github.io\img\gaeproject.jpg" alt="gaeproject.jpg"></p>
-<p>app.yamlを編集してapplicationの部分をGAEのコンソールのプロジェクト名IDにしておきます。</p>
+<p>app.yamlを編集してapplicationの部分をGAEのコンソールのプロジェクトIDにしておきます。</p>
 <figure class="highlight yaml"><figcaption><span>app.yaml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">application</span>: <span class="string">your prject id</span></div><div class="line"><span class="attribute">version</span>: <span class="string">1</span></div><div class="line"><span class="attribute">runtime</span>: <span class="string">go</span></div><div class="line"><span class="attribute">api_version</span>: <span class="string">go1</span></div><div class="line"></div><div class="line"><span class="vim">handler<span class="variable">s:</span></span></div><div class="line">- ur<span class="variable">l:</span> /.*</div><div class="line">  <span class="keyword">scrip</span><span class="variable">t:</span> _go_app</div></pre></td></tr></table></figure>
 
 <h2 id="ローカルで動かしてみる">ローカルで動かしてみる</h2>
