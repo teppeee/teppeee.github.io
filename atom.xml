@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-25T10:10:43.361Z</updated>
+  <updated>2015-01-25T10:11:53.345Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,8 +19,10 @@
     <link href="http://teppeee.github.io/2015/01/25/intelliJ-gaego/"/>
     <id>http://teppeee.github.io/2015/01/25/intelliJ-gaego/</id>
     <published>2015-01-25T09:57:17.000Z</published>
-    <updated>2015-01-25T10:10:33.000Z</updated>
+    <updated>2015-01-25T10:11:39.000Z</updated>
     <content type="html"><![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
+<a id="more"></a>
+
 <h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
 <p>チュートリアルにしたがって進めてみます。<br><a href="https://cloud.google.com/appengine/docs" target="_blank" rel="external">https://cloud.google.com/appengine/docs</a><br>の「try it now」ボタンより</p>
 <p><a href="https://cloud.google.com/sdk/" target="_blank" rel="external">SDK</a>をダウンロードします。<br>次のコマンドを使って Go 用 App Engine パッケージをインストールします:<br><code>gcloud components update gae-go</code></p>
@@ -64,8 +66,8 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
-<h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
-<p>チュートリアルにし]]>
+]]>
+    
     </summary>
     
       <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
