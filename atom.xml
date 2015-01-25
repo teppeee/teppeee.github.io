@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-01-25T10:09:27.169Z</updated>
+  <updated>2015-01-25T10:10:43.361Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -15,13 +15,12 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[intelliJ_gaego]]></title>
+    <title><![CDATA[IntelliJ IDEAでGAE/Goの開発環境をつくる]]></title>
     <link href="http://teppeee.github.io/2015/01/25/intelliJ-gaego/"/>
     <id>http://teppeee.github.io/2015/01/25/intelliJ-gaego/</id>
     <published>2015-01-25T09:57:17.000Z</published>
-    <updated>2015-01-25T10:08:05.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="IntelliJ_IDEAでGAE/Goの開発環境をつくる">IntelliJ IDEAでGAE/Goの開発環境をつくる</h1>
-<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
+    <updated>2015-01-25T10:10:33.000Z</updated>
+    <content type="html"><![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
 <h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
 <p>チュートリアルにしたがって進めてみます。<br><a href="https://cloud.google.com/appengine/docs" target="_blank" rel="external">https://cloud.google.com/appengine/docs</a><br>の「try it now」ボタンより</p>
 <p><a href="https://cloud.google.com/sdk/" target="_blank" rel="external">SDK</a>をダウンロードします。<br>次のコマンドを使って Go 用 App Engine パッケージをインストールします:<br><code>gcloud components update gae-go</code></p>
@@ -64,8 +63,9 @@
 <p>IntelliJ IDEA　の　Setting &gt; Tools &gt; Google Goで<br>GOROOTにplatform\google_appengine\gorootを選択しようとしましたが<br>エラーになり選択できませんでした。<br>コマンドラインからは使えるので我慢しています。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="IntelliJ_IDEAでGAE/Goの開発環境をつくる">IntelliJ IDEAでGAE/Goの開発環境をつくる</h1>
-<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。<]]>
+    <![CDATA[<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
+<h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
+<p>チュートリアルにし]]>
     </summary>
     
       <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
