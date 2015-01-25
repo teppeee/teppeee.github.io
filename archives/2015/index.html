@@ -67,6 +67,97 @@
     <div id="main">
       
   
+    <article id="post-intelliJ-gaego" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/01/25/intelliJ-gaego/" class="article-date">
+  <time datetime="2015-01-25T09:57:17.000Z" itemprop="datePublished">Jan 25 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2015/01/25/intelliJ-gaego/">intelliJ_gaego</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h1 id="IntelliJ_IDEAでGAE/Goの開発環境をつくる">IntelliJ IDEAでGAE/Goの開発環境をつくる</h1>
+<p>GAEを使ってみようと思います。<br>Googleのアカウントを持っているだけで、<br>WEBアプリが作れてしまいます。</p>
+<h2 id="GAEプロジェクト作成～SDKインストール">GAEプロジェクト作成～SDKインストール</h2>
+<p>チュートリアルにしたがって進めてみます。<br><a href="https://cloud.google.com/appengine/docs" target="_blank" rel="external">https://cloud.google.com/appengine/docs</a><br>の「try it now」ボタンより</p>
+<p><a href="https://cloud.google.com/sdk/" target="_blank" rel="external">SDK</a>をダウンロードします。<br>次のコマンドを使って Go 用 App Engine パッケージをインストールします:<br><code>gcloud components update gae-go</code></p>
+<p>言語別のSDK単体もありますが、管理ツールがついてくるこちらからインストールしたほうがよいです。<br>SDKはそのままのパスでProgram Filesにインストールすると<br>半角スペースが原因で<code>goapp serve</code>が動かないので注意です。</p>
+<p>GAE用のプロジェクトも作成します。ここで割り振られたプロジェクトIDをデプロイ時に使用します。</p>
+<p>あとは<br>SDKをインストールしたフォルダの中の\platform\google_appengine<br>にツール類があるのでパスを通します</p>
+<h2 id="IntelliJ_IDEAの設定">IntelliJ IDEAの設定</h2>
+<p>プロジェクトを作成します。<br>Create New Project &gt; Go App Engine　を選択します。</p>
+<p><img src="http://teppeee.github.io\img\newproject.jpg" alt="newproject.jpg"></p>
+<p>適当に名前をつけて作成します。</p>
+<p>次にFile &gt; ProjectStructure &gt; SDKの＋ボタンよりSDKを追加します。<br>SDKのpathは SDKをインストールしたフォルダの中の\platform\google_appengineを指定します。</p>
+<p><img src="http://teppeee.github.io\img\SDK.jpg" alt="SDK.jpg"></p>
+<p>追加したSDKを　ProjectStructure &gt; Project より選択します。</p>
+<p><img src="http://teppeee.github.io\img\projectSDK.jpg" alt="projectSDK.jpg"></p>
+<p>ひな形のプロジェクトが作成されます。</p>
+<p><img src="http://teppeee.github.io\img\gaeproject.jpg" alt="gaeproject.jpg"></p>
+<p>app.yamlを編集してapplicationの部分をGAEのコンソールのプロジェクト名IDにしておきます。</p>
+<figure class="highlight yaml"><figcaption><span>app.yaml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">application</span>: <span class="string">your prject id</span></div><div class="line"><span class="attribute">version</span>: <span class="string">1</span></div><div class="line"><span class="attribute">runtime</span>: <span class="string">go</span></div><div class="line"><span class="attribute">api_version</span>: <span class="string">go1</span></div><div class="line"></div><div class="line"><span class="vim">handler<span class="variable">s:</span></span></div><div class="line">- ur<span class="variable">l:</span> /.*</div><div class="line">  <span class="keyword">scrip</span><span class="variable">t:</span> _go_app</div></pre></td></tr></table></figure>
+
+<h2 id="ローカルで動かしてみる">ローカルで動かしてみる</h2>
+<p>右上の下矢印よりEdit Configurations &gt; 「+」ボタン &gt; Go Local AppEngine Serverを選択</p>
+<p><img src="http://teppeee.github.io\img\editConfigration.jpg" alt="editConfigration.jpg"></p>
+<p>特に設定は変更せず、適当にNameをつけて保存します。</p>
+<p><img src="http://teppeee.github.io\img\editConfiguration1.jpg" alt="editConfiguration1.jpg"></p>
+<p>作成した実行プロファイルを選択して、緑色の「▽」ボタンを押して実行します。</p>
+<p><img src="http://teppeee.github.io\img\runlocalserver.jpg" alt="runlocalserver.jpg"></p>
+<p>localhost:8000 にアクセスしてみると開発用の管理画面が表示されます。</p>
+<p><img src="http://teppeee.github.io\img\localserver.jpg" alt="localserver.jpg"></p>
+<p>「default」を押すと動いているのが確認できます。</p>
+<p><img src="http://teppeee.github.io\img\localserver1.jpg" alt="localserver1.jpg"></p>
+<h2 id="GAE上にデプロイしてみます">GAE上にデプロイしてみます</h2>
+<p>まず<code>goapp deploy</code>してみましたが、認証がうまく通りませんでした。<br>SDKにGoogle App Engine Launcherというのがついているのでこれを使ってみます。</p>
+<p>File &gt; Add Existing Application で作ったプロジェクトを選択します。<br><img src="http://teppeee.github.io\img\sdklauncher.jpg" alt="sdklauncher.jpg"></p>
+<p>あとは「Deploy」ボタンをおしてGoogleアカウントのID・パスワードを入力すると<br>デプロイすることができました。</p>
+<p><a href="http://[your" target="_blank" rel="external">http://[your</a> project id].appspot.com/<br>にアクセスすると動いているのを確認することができます。</p>
+<h2 id="気になったところ">気になったところ</h2>
+<p>IntelliJ IDEA上でgo fmt等のツールがエラーになるようになっていました。</p>
+<p><img src="http://teppeee.github.io\img\fmterror.jpg" alt="fmterror.jpg"></p>
+<p>SDKをみてみるとgorootというフォルダがあり<br>SDK内にGOそのものを内包しており、GAEではこちらがGOROOTになるようです。</p>
+<p>IntelliJ IDEA　の　Setting &gt; Tools &gt; Google Goで<br>GOROOTにplatform\google_appengine\gorootを選択しようとしましたが<br>エラーになり選択できませんでした。<br>コマンドラインからは使えるので我慢しています。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJIDEA/">IntelliJIDEA</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+
+  
     <article id="post-google-cloud" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">

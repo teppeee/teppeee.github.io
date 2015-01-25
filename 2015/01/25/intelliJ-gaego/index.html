@@ -3,17 +3,40 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: GAE | teppeeeのブログ</title>
+  <title>intelliJ_gaego | teppeeeのブログ</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="teppeeeのブログ">
-<meta property="og:url" content="http://teppeee.github.io/tags/GAE/">
+  <meta name="description" content="IntelliJ IDEAでGAE/Goの開発環境をつくる
+GAEを使ってみようと思います。Googleのアカウントを持っているだけで、WEBアプリが作れてしまいます。
+GAEプロジェクト作成～SDKインストール
+チュートリアルにしたがって進めてみます。https://cloud.google.com/appengine/docsの「try it now」ボタンより
+SDKをダウンロードします。次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="intelliJ_gaego">
+<meta property="og:url" content="http://teppeee.github.io/2015/01/25/intelliJ-gaego/">
 <meta property="og:site_name" content="teppeeeのブログ">
-<meta property="og:description">
+<meta property="og:description" content="IntelliJ IDEAでGAE/Goの開発環境をつくる
+GAEを使ってみようと思います。Googleのアカウントを持っているだけで、WEBアプリが作れてしまいます。
+GAEプロジェクト作成～SDKインストール
+チュートリアルにしたがって進めてみます。https://cloud.google.com/appengine/docsの「try it now」ボタンより
+SDKをダウンロードします。次">
+<meta property="og:image" content="http://teppeee.github.io\img\newproject.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\SDK.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\projectSDK.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\gaeproject.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\editConfigration.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\editConfiguration1.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\runlocalserver.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\localserver.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\localserver1.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\sdklauncher.jpg">
+<meta property="og:image" content="http://teppeee.github.io\img\fmterror.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="teppeeeのブログ">
-<meta name="twitter:description">
+<meta name="twitter:title" content="intelliJ_gaego">
+<meta name="twitter:description" content="IntelliJ IDEAでGAE/Goの開発環境をつくる
+GAEを使ってみようと思います。Googleのアカウントを持っているだけで、WEBアプリが作れてしまいます。
+GAEプロジェクト作成～SDKインストール
+チュートリアルにしたがって進めてみます。https://cloud.google.com/appengine/docsの「try it now」ボタンより
+SDKをダウンロードします。次">
 
   
     <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
@@ -65,9 +88,7 @@
 	</div>
 </header>
     <div id="main">
-      
-  
-    <article id="post-intelliJ-gaego" class="post">
+      <article id="post-intelliJ-gaego" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
 			<a href="/2015/01/25/intelliJ-gaego/" class="article-date">
@@ -83,8 +104,8 @@
 	<header class="entry-header">
 		
   
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/01/25/intelliJ-gaego/">intelliJ_gaego</a>
+    <h1 class="article-title entry-title" itemprop="name">
+      intelliJ_gaego
     </h1>
   
 
@@ -149,85 +170,26 @@
 		</div>
 	</footer>
 	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
-    <article id="post-google-cloud" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2015/01/18/google-cloud/" class="article-date">
-  <time datetime="2015-01-17T23:21:11.000Z" itemprop="datePublished">Jan 18 2015</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/01/18/google-cloud/">Google Cloud Platformについて簡単に</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-			<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
-<h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
-<ul>
-<li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
-</li>
-<li><p>Python、Java、PHP、Goに対応</p>
-</li>
-<li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
-</li>
-<li><p>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
-</li>
-<li><p>タスクキューで定期的なタスクを実行できる。</p>
-</li>
-</ul>
-<p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせることである程度のことまではできそう。</p>
-
-			
-				<p class="article-more-link">
-					<a href="/2015/01/18/google-cloud/#more">Read More</a>
-				</p>
-      
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li></ul>
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/18/google-cloud/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Google Cloud Platformについて簡単に
+        
+      </div>
+    </a>
+  
+</nav>
 
-			</span>
-		</div>
-	</footer>
-	
+  
 </article>
 
 
-	<hr class="article-devider">
 
-
-
-
-  
-  
 
 
     </div>
