@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-01T17:59:17.042Z</updated>
+  <updated>2015-02-01T18:03:47.203Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/02/02/connectCloudSQL/"/>
     <id>http://teppeee.github.io/2015/02/02/connectCloudSQL/</id>
     <published>2015-02-01T17:54:45.000Z</published>
-    <updated>2015-02-01T17:59:05.000Z</updated>
+    <updated>2015-02-01T18:03:40.000Z</updated>
     <content type="html"><![CDATA[<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
 <h2 id="準備">準備</h2>
 <p>CloudSQLのインスタンスを作成し、</p>
@@ -27,10 +27,10 @@
 <p>最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。<br>仕方なく米国で作成。</p>
 <h2 id="go言語から接続">go言語から接続</h2>
 <p>結論から行くと<br><a href="https://github.com/go-sql-driver/mysql" target="_blank" rel="external">https://github.com/go-sql-driver/mysql</a><br>のリファレンス通りで接続することができました。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"database/sql"</span></div><div class="line">	_ <span class="string">"github.com/go-sql-driver/mysql"</span></div><div class="line">）</div><div class="line"></div><div class="line">clouddb, err := sql.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(project-id:instance-name)/dbname"</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"database/sql"</span></div><div class="line">	_ <span class="string">"github.com/go-sql-driver/mysql"</span></div><div class="line">）</div><div class="line"></div><div class="line"></div><div class="line">db, _ := sql.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(project-id:instance-name)/dbname"</span>)</div></pre></td></tr></table></figure>
 
 <h2 id="ハマったところ">ハマったところ</h2>
-<p>コンソールの中にrootのパスワードを設定する箇所があり、<br>mysqlクライアントでは設定していたため、接続に必要だと思い込んでいた。</p>
+<p>コンソールの中にrootのパスワードを設定する箇所があり、<br>リモートで接続する際に設定していたため、必要だと思い込んでいました。</p>
 <p>また接続できないと言っている人がいて必要そうに見えます。<br><a href="http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine" target="_blank" rel="external">http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine</a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">User</span>, Host, <span class="keyword">Password</span> <span class="keyword">FROM</span> mysql.<span class="keyword">user</span>;</span></div></pre></td></tr></table></figure>
 
