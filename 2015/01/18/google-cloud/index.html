@@ -101,16 +101,11 @@ PaaS（Platform-as-a-Service）使える言語・できることは限られて�
     	<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
 <h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
 <ul>
-<li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
-</li>
-<li><p>Python、Java、PHP、Goに対応</p>
-</li>
-<li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
-</li>
-<li><p>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
-</li>
-<li><p>タスクキューで定期的なタスクを実行できる。</p>
-</li>
+<li>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</li>
+<li>Python、Java、PHP、Goに対応</li>
+<li>シャーディング、負荷分散はGoogleがやってくれる。</li>
+<li>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</li>
+<li>タスクキューで定期的なタスクを実行できる。</li>
 </ul>
 <p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせることである程度のことまではできそう。</p>
 <a id="more"></a>
@@ -126,21 +121,15 @@ PaaS（Platform-as-a-Service）使える言語・できることは限られて�
 <p>とのこと</p>
 <h2 id="Cloud_Datastore"><a href="https://cloud.google.com/datastore/" target="_blank" rel="external">Cloud Datastore</a></h2>
 <ul>
-<li><p>NoSQLのデータベース</p>
-</li>
-<li><p>Cloud Storageにバックアップを行うことができる。</p>
-</li>
-<li><p>操作回数に応じて課金される。<br>Memcache併用で課金を抑えられそう。</p>
-</li>
+<li>NoSQLのデータベース</li>
+<li>Cloud Storageにバックアップを行うことができる。</li>
+<li>操作回数に応じて課金される。<br>Memcache併用で課金を抑えられそう。</li>
 </ul>
 <h2 id="Cloud_SQL"><a href="https://cloud.google.com/sql/" target="_blank" rel="external">Cloud SQL</a></h2>
 <ul>
-<li><p>MySQL<br>コンソールからインスタンスを作ったりスペックを簡単に変更できる。</p>
-</li>
-<li><p>Cloud Datastore同様Cloud Storageにバックアップを行うことができる。</p>
-</li>
+<li>MySQL<br>コンソールからインスタンスを作ったりスペックを簡単に変更できる。</li>
+<li>Cloud Datastore同様Cloud Storageにバックアップを行うことができる。<br>こういうの欲しかった！</li>
 </ul>
-<p>こういうの欲しかった！</p>
 <h2 id="Compute_Engine"><a href="https://cloud.google.com/compute/" target="_blank" rel="external">Compute Engine</a></h2>
 <ul>
 <li>IaaS（Infrastructure-as-a-Service）<br>Googleのインフラ上にホストされている仮想マシン<br>App Engineでは足りない場合はこちらを使う。</li>

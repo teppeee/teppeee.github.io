@@ -149,16 +149,11 @@
 			<p>AWSほど多様なことはできないが、お手軽です。<br>当然C#は使えない(-_-;)<br>データセンターがおそらく日本にないのでレイテンシが気になりますが、<br>AWSもAzureもできたのでそのうちできるのではないかと勝手に思っています。</p>
 <h2 id="App_Engine"><a href="https://cloud.google.com/appengine/" target="_blank" rel="external">App Engine</a></h2>
 <ul>
-<li><p>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</p>
-</li>
-<li><p>Python、Java、PHP、Goに対応</p>
-</li>
-<li><p>シャーディング、負荷分散はGoogleがやってくれる。</p>
-</li>
-<li><p>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</p>
-</li>
-<li><p>タスクキューで定期的なタスクを実行できる。</p>
-</li>
+<li>PaaS（Platform-as-a-Service）<br>使える言語・できることは限られているが<br>プログラムを書いてデプロイしたらすぐにWEBアプリを動かすことができる。</li>
+<li>Python、Java、PHP、Goに対応</li>
+<li>シャーディング、負荷分散はGoogleがやってくれる。</li>
+<li>28 インスタンス時間無料(2014 年 4 月 1 日より)<br>アクセスが多いときは自動でインスタンスが複数立ち上がり分散してくれるが、その分インスタンス時間を消費する<br><a href="http://genesis-tdsg.blogspot.jp/2014/02/gae.html" target="_blank" rel="external">http://genesis-tdsg.blogspot.jp/2014/02/gae.html</a> の実験を参考にすると<br>20～25人のユーザがF5アタックしているような状態まで、１インスタンスで対処することが出来る。</li>
+<li>タスクキューで定期的なタスクを実行できる。</li>
 </ul>
 <p>Cloud SQL、Cloud Datastore、Cloud Storageと組み合わせることである程度のことまではできそう。</p>
 

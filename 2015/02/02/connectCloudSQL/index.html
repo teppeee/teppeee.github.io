@@ -3,17 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Go言語 | teppeeeのブログ</title>
+  <title>GAE/GO CloudSQL接続 | teppeeeのブログ</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="teppeeeのブログ">
-<meta property="og:url" content="http://teppeee.github.io/tags/Go言語/">
+  <meta name="description" content="ローカル環境では普通のmysqlと同様でしたが、GAEから繋ごうとするとハマりました。
+準備
+CloudSQLのインスタンスを作成し、
+アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。
+最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。仕方なく米国で作成。
+go言語から接続
+結論から行くとhttps:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAE/GO CloudSQL接続">
+<meta property="og:url" content="http://teppeee.github.io/2015/02/02/connectCloudSQL/">
 <meta property="og:site_name" content="teppeeeのブログ">
-<meta property="og:description">
+<meta property="og:description" content="ローカル環境では普通のmysqlと同様でしたが、GAEから繋ごうとするとハマりました。
+準備
+CloudSQLのインスタンスを作成し、
+アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。
+最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。仕方なく米国で作成。
+go言語から接続
+結論から行くとhttps:">
+<meta property="og:image" content="http://teppeee.github.io/img/Google APIs Console.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="teppeeeのブログ">
-<meta name="twitter:description">
+<meta name="twitter:title" content="GAE/GO CloudSQL接続">
+<meta name="twitter:description" content="ローカル環境では普通のmysqlと同様でしたが、GAEから繋ごうとするとハマりました。
+準備
+CloudSQLのインスタンスを作成し、
+アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。
+最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。仕方なく米国で作成。
+go言語から接続
+結論から行くとhttps:">
 
   
     <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
@@ -65,9 +84,7 @@
 	</div>
 </header>
     <div id="main">
-      
-  
-    <article id="post-connectCloudSQL" class="post">
+      <article id="post-connectCloudSQL" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
 			<a href="/2015/02/02/connectCloudSQL/" class="article-date">
@@ -83,8 +100,8 @@
 	<header class="entry-header">
 		
   
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/02/02/connectCloudSQL/">GAE/GO CloudSQL接続</a>
+    <h1 class="article-title entry-title" itemprop="name">
+      GAE/GO CloudSQL接続
     </h1>
   
 
@@ -125,72 +142,26 @@
 		</div>
 	</footer>
 	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
-    <article id="post-inteliJ-go" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2015/01/12/inteliJ-go/" class="article-date">
-  <time datetime="2015-01-12T14:34:46.000Z" itemprop="datePublished">Jan 12 2015</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/01/12/inteliJ-go/">IntelliJ IDEAでGoの開発環境をつくる</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-			<p>社内のプロジェクトでGCEを使っているものがあり、<br>GAEもよさそうだと思い調べていましたが、<br>せっかくなので気になっているGo言語で使ってみようと思います。<br>２年ぶりに見ましたが、ずいぶんわかりやすくなっていました。<br>無料の範囲でいろいろできそうです。</p>
-<p><strong><a href="https://cloud.google.com/appengine/?hl=ja" target="_blank" rel="external">AppEngine</a></strong></p>
-
-			
-				<p class="article-more-link">
-					<a href="/2015/01/12/inteliJ-go/#more">Read More</a>
-				</p>
-      
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJIDEA/">IntelliJIDEA</a></li></ul>
+<nav id="article-nav">
+  
+  
+    <a href="/2015/01/25/intelliJ-gaego/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          IntelliJ IDEAでGAE/Goの開発環境をつくる
+        
+      </div>
+    </a>
+  
+</nav>
 
-			</span>
-		</div>
-	</footer>
-	
+  
 </article>
 
 
-	<hr class="article-devider">
 
-
-
-
-  
-  
 
 
     </div>

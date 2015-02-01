@@ -135,7 +135,7 @@
 <p><img src="http://teppeee.github.io\img\localserver.jpg" alt="localserver.jpg"></p>
 <p>「default」を押すと動いているのが確認できます。</p>
 <p><img src="http://teppeee.github.io\img\localserver1.jpg" alt="localserver1.jpg"></p>
-<h2 id="GAE上にデプロイしてみます">GAE上にデプロイしてみます</h2>
+<h2 id="GAEにデプロイしてみます">GAEにデプロイしてみます</h2>
 <p>まず<code>goapp deploy</code>してみましたが、認証がうまく通りませんでした。<br>SDKにGoogle App Engine Launcherというのがついているのでこれを使ってみます。</p>
 <p>File &gt; Add Existing Application で作ったプロジェクトを選択します。<br><img src="http://teppeee.github.io\img\sdklauncher.jpg" alt="sdklauncher.jpg"></p>
 <p>あとは「Deploy」ボタンをおしてGoogleアカウントのID・パスワードを入力すると<br>デプロイすることができました。</p>
@@ -143,7 +143,7 @@
 <h2 id="気になったところ">気になったところ</h2>
 <p>IntelliJ IDEA上でgo fmt等のツールがエラーになるようになっていました。</p>
 <p><img src="http://teppeee.github.io\img\fmterror.jpg" alt="fmterror.jpg"></p>
-<p>SDKをみてみるとgorootというフォルダがあり<br>SDK内にGOそのものを内包しており、GAEではこちらがGOROOTになるようです。</p>
+<p>SDKをみてみるとgorootというフォルダがあり、基本パッケージやツール類が入っています。<br>どうやらSDK内にGOそのものを内包しており、GAEではこちらがGOROOTになるようです。</p>
 <p>IntelliJ IDEA　の　Setting &gt; Tools &gt; Google Goで<br>GOROOTにplatform\google_appengine\gorootを選択しようとしましたが<br>エラーになり選択できませんでした。</p>
 <p>荒業ですが、<br>IntelliJ IDEAはplatform\google_appengine\の直下を見に行ってるようなので<br>platform\google_appengine\goroot\binのツール類(go fmt等)を<br>platform\google_appengine\にコピーしてやれば動きました。</p>
 
@@ -164,6 +164,15 @@
 	
     
 <nav id="article-nav">
+  
+    <a href="/2015/02/02/connectCloudSQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GAE/GO CloudSQL接続
+        
+      </div>
+    </a>
   
   
     <a href="/2015/01/18/google-cloud/" id="article-nav-older" class="article-nav-link-wrap">
