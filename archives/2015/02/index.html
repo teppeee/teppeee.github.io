@@ -95,19 +95,19 @@
 <h2 id="準備">準備</h2>
 <p>CloudSQLのインスタンスを作成し、</p>
 <p>アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。</p>
-<p>最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。<br>仕方なく米国で作成。</p>
+<p>最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。<br>しょうがないので米国で作成。</p>
 <h2 id="go言語から接続">go言語から接続</h2>
 <p>結論から行くと<br><a href="https://github.com/go-sql-driver/mysql" target="_blank" rel="external">https://github.com/go-sql-driver/mysql</a><br>のリファレンス通りで接続することができました。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"database/sql"</span></div><div class="line">	_ <span class="string">"github.com/go-sql-driver/mysql"</span></div><div class="line">）</div><div class="line"></div><div class="line"></div><div class="line">db, _ := sql.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(project-id:instance-name)/dbname"</span>)</div></pre></td></tr></table></figure>
 
 <h2 id="ハマったところ">ハマったところ</h2>
 <p>コンソールの中にrootのパスワードを設定する箇所があり、<br>リモートで接続する際に設定していたため、必要だと思い込んでいました。</p>
-<p>また接続できないと言っている人がいて必要そうに見えます。<br><a href="http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine" target="_blank" rel="external">http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine</a></p>
+<p>調べると接続できないと言っている人がいて必要そうに見えます。<br><a href="http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine" target="_blank" rel="external">http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine</a></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">User</span>, Host, <span class="keyword">Password</span> <span class="keyword">FROM</span> mysql.<span class="keyword">user</span>;</span></div></pre></td></tr></table></figure>
 
 <p>で見てみるとパスワードが空になっていたため、パスワードは設定なしで繋がりました。</p>
 <h2 id="DBの操作">DBの操作</h2>
-<p>簡単にクエリ実行できないと思っていたらAPIコンソール(旧管理画面)<br>の「SQL Prompt」というタブから行えるようです。</p>
+<p>簡単なクエリはAPIコンソール(旧管理画面)の「SQL Prompt」というタブから実行できます。</p>
 <p><img src="http://teppeee.github.io/img/Google APIs Console.jpg" alt="APIコンソール"></p>
 
     
