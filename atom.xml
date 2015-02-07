@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-07T23:31:04.877Z</updated>
+  <updated>2015-02-07T23:32:32.689Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/02/08/useCloudSQL/"/>
     <id>http://teppeee.github.io/2015/02/08/useCloudSQL/</id>
     <published>2015-02-07T23:04:52.000Z</published>
-    <updated>2015-02-07T23:30:58.000Z</updated>
+    <updated>2015-02-07T23:32:15.000Z</updated>
     <content type="html"><![CDATA[<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
 <ul>
 <li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
@@ -30,7 +30,7 @@
 <p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
 <a id="more"></a>
 
-<h2 id="DB作成">DB作成</h2>
+<h2 id="テーブル作成">テーブル作成</h2>
 <p>cakephpのチュートリアルのサンプルを拝借しました。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`posts`</span> (</span></div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`body`</span> <span class="built_in">text</span>,</div><div class="line">  <span class="string">`created_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`updated_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">12</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</div></pre></td></tr></table></figure>
 
