@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GAE/GO CloudSQL使ってみる | teppeeeのブログ</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="ルーティングとORMには以下のものを使わせてもらいます。goは好きなものを選択して作れるのがよいですね。
+
+enazn/goji
+jinzhu/gorm
+
+gojiはシンプルで高速なWAFです。middlewareを足すことで機能を追加することができます。
+ORMは他にcoopernurse/gorpも有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみま">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAE/GO CloudSQL使ってみる">
+<meta property="og:url" content="http://teppeee.github.io/2015/02/08/useCloudSQL/">
+<meta property="og:site_name" content="teppeeeのブログ">
+<meta property="og:description" content="ルーティングとORMには以下のものを使わせてもらいます。goは好きなものを選択して作れるのがよいですね。
+
+enazn/goji
+jinzhu/gorm
+
+gojiはシンプルで高速なWAFです。middlewareを足すことで機能を追加することができます。
+ORMは他にcoopernurse/gorpも有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみま">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GAE/GO CloudSQL使ってみる">
+<meta name="twitter:description" content="ルーティングとORMには以下のものを使わせてもらいます。goは好きなものを選択して作れるのがよいですね。
+
+enazn/goji
+jinzhu/gorm
+
+gojiはシンプルで高速なWAFです。middlewareを足すことで機能を追加することができます。
+ORMは他にcoopernurse/gorpも有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみま">
+
+  
+    <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-57669979-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			
+			<!--<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>-->
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://teppeee.github.io"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-useCloudSQL" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/02/08/useCloudSQL/" class="article-date">
+  <time datetime="2015-02-07T23:04:52.000Z" itemprop="datePublished">Feb 8 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      GAE/GO CloudSQL使ってみる
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
+<ul>
+<li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
+<li><a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">jinzhu/gorm</a></li>
+</ul>
+<p>gojiはシンプルで高速なWAFです。<br>middlewareを足すことで機能を追加することができます。</p>
+<p>ORMは他に<a href="https://github.com/coopernurse/gorp" target="_blank" rel="external">coopernurse/gorp</a>も有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみます。</p>
+<p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
+<a id="more"></a>
+
+<h2 id="DB作成">DB作成</h2>
+<p>cakephpのチュートリアルのサンプルを拝借しました。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`posts`</span> (</span></div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`body`</span> <span class="built_in">text</span>,</div><div class="line">  <span class="string">`created_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`updated_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">12</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</div></pre></td></tr></table></figure>
+
+<p>createdとmodifiedの部分はgormに合わせて変更しました。<br>サンプルの内容も入れておきます。</p>
+<p>違うテーブル名やカラム名でもマッピングできるようですが、<br>最初ならマイグレーションファイル作るのがよさそうです。<br><a href="http://qiita.com/masahikoofjoyto/items/b2e6c2cad447e48f91ee" target="_blank" rel="external">http://qiita.com/masahikoofjoyto/items/b2e6c2cad447e48f91ee</a></p>
+<p>対応するmodel</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">	Id        <span class="typename">int</span></div><div class="line">	Title     <span class="typename">string</span></div><div class="line">	Body      <span class="typename">string</span></div><div class="line">	CreatedAt time.Time</div><div class="line">	UpdatedAt time.Time</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="ルーティング">ルーティング</h2>
+<p>簡単にルーティングを作成します。<br>gojiはgaeから使う場合は<code>http.Handle(&quot;/&quot;, goji.DefaultMux)</code>とします。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> db gorm.DB</div><div class="line"></div><div class="line"><span class="keyword">func</span> init() {</div><div class="line">	db, _ = gorm.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(projectId:CouldSQLInstanceId)/dbname?charset=utf8&parseTime=True&loc=Japan"</span>)</div><div class="line"></div><div class="line">	posts := web.New()</div><div class="line">	goji.Handle(<span class="string">"/posts/*"</span>, posts)</div><div class="line">	posts.Use(middleware.SubRouter)</div><div class="line"></div><div class="line">	posts.Get(<span class="string">"/"</span>, View)</div><div class="line">	posts.Get(<span class="string">"/:id"</span>, ViewById)</div><div class="line">	posts.Post(<span class="string">"/edit/"</span>, Update)</div><div class="line">	http.Handle(<span class="string">"/"</span>, goji.DefaultMux)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>datetimeのマッピング時に標準時が使用されるためloc=Japanが必要でした。<br>posts以下をまとめるにはSubRouterというmiddlewareを使用します。</p>
+<h2 id="一覧をjsonで出力">一覧をjsonで出力</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> View(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	posts := []Post{}</div><div class="line">	db.Find(&posts)</div><div class="line"></div><div class="line">	w.Header().Set(<span class="string">"Content-Type"</span>, <span class="string">"application/json; charset=utf-8"</span>)</div><div class="line">	encoder := json.NewEncoder(w)</div><div class="line">	encoder.Encode(&posts)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="一件取得">一件取得</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> ViewById(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	post := Post{}</div><div class="line"></div><div class="line">	id, err := strconv.Atoi(c.URLParams[<span class="string">"id"</span>])</div><div class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> {</div><div class="line">		http.Error(w, err.Error(), http.StatusBadRequest)</div><div class="line">		<span class="keyword">return</span></div><div class="line">	}</div><div class="line"></div><div class="line">	db.Find(&post, id)</div><div class="line"></div><div class="line">	w.Header().Set(<span class="string">"Content-Type"</span>, <span class="string">"application/json; charset=utf-8"</span>)</div><div class="line">	encoder := json.NewEncoder(w)</div><div class="line">	encoder.Encode(&post)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="jsonをpostして新規追加と編集">jsonをpostして新規追加と編集</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> Update(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	post := Post{}</div><div class="line">	err := json.NewDecoder(r.Body).Decode(&post)</div><div class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> {</div><div class="line">		http.Error(w, err.Error(), http.StatusBadRequest)</div><div class="line">		<span class="keyword">return</span></div><div class="line">	}</div><div class="line"></div><div class="line">	postForSave := Post{}</div><div class="line">	db.First(&postForSave, post.Id)</div><div class="line"></div><div class="line">	postForSave.Title = post.Title</div><div class="line">	postForSave.Body = post.Body</div><div class="line"></div><div class="line">	db.Save(&postForSave)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>そのままSaveできれば便利だったのですが、created_atが消えてしまいました。ちょっといまいちな感じになっています。</p>
+<p><code>{&quot;Id&quot;:2,&quot;Title&quot;:&quot;タイトル編集&quot;,&quot;Body&quot;:&quot;本文編集&quot;}</code><br>Idありでpostすると編集され、</p>
+<p><code>｛&quot;Title&quot;:&quot;タイトル追加&quot;,&quot;Body&quot;:&quot;ボディ追加&quot;}</code><br>Idがないと新規追加されます。</p>
+<p>テストやDB側が複雑になった場合の不安はありますが、<br>簡単なものであればすぐに作れそうです。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudSQL/">CloudSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/02/02/connectCloudSQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          GAE/GO CloudSQL接続
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:teppeee.github.io">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 teppeee<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

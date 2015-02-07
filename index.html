@@ -67,6 +67,68 @@
     <div id="main">
       
   
+    <article id="post-useCloudSQL" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/02/08/useCloudSQL/" class="article-date">
+  <time datetime="2015-02-07T23:04:52.000Z" itemprop="datePublished">Feb 8 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2015/02/08/useCloudSQL/">GAE/GO CloudSQL使ってみる</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
+<ul>
+<li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
+<li><a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">jinzhu/gorm</a></li>
+</ul>
+<p>gojiはシンプルで高速なWAFです。<br>middlewareを足すことで機能を追加することができます。</p>
+<p>ORMは他に<a href="https://github.com/coopernurse/gorp" target="_blank" rel="external">coopernurse/gorp</a>も有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみます。</p>
+<p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
+
+			
+				<p class="article-more-link">
+					<a href="/2015/02/08/useCloudSQL/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudSQL/">CloudSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+
+  
     <article id="post-connectCloudSQL" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
@@ -91,25 +153,13 @@
 	</header>
 	<div class="entry-content">
 		
-    	<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
-<h2 id="準備">準備</h2>
-<p>CloudSQLのインスタンスを作成し、</p>
-<p>アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。</p>
-<p>最初にアジアでインスタンスを作成するとAppEngineのアプリケーションと地域が違うようで設定できませんでした。<br>しょうがないので米国で作成。</p>
-<h2 id="go言語から接続">go言語から接続</h2>
-<p>結論から行くと<br><a href="https://github.com/go-sql-driver/mysql" target="_blank" rel="external">https://github.com/go-sql-driver/mysql</a><br>のリファレンス通りで接続することができました。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"database/sql"</span></div><div class="line">	_ <span class="string">"github.com/go-sql-driver/mysql"</span></div><div class="line">）</div><div class="line"></div><div class="line"></div><div class="line">db, _ := sql.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(project-id:instance-name)/dbname"</span>)</div></pre></td></tr></table></figure>
+			<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
 
-<h2 id="ハマったところ">ハマったところ</h2>
-<p>コンソールの中にrootのパスワードを設定する箇所があり、<br>リモートで接続する際に設定していたため、必要だと思い込んでいました。</p>
-<p>調べると接続できないと言っている人がいて必要そうに見えます。<br><a href="http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine" target="_blank" rel="external">http://stackoverflow.com/questions/21368363/how-to-connect-to-google-cloud-sql-with-go-sql-driver-mysql-on-app-engine</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">User</span>, Host, <span class="keyword">Password</span> <span class="keyword">FROM</span> mysql.<span class="keyword">user</span>;</span></div></pre></td></tr></table></figure>
-
-<p>で見てみるとパスワードが空になっていたため、パスワードは設定なしで繋がりました。</p>
-<h2 id="DBの操作">DBの操作</h2>
-<p>簡単なクエリはAPIコンソール(旧管理画面)の「SQL Prompt」というタブから実行できます。</p>
-<p><img src="http://teppeee.github.io/img/Google APIs Console.jpg" alt="APIコンソール"></p>
-
+			
+				<p class="article-more-link">
+					<a href="/2015/02/02/connectCloudSQL/#more">Read More</a>
+				</p>
+      
     
 	</div>
 	<footer class="entry-footer">
@@ -588,56 +638,10 @@
 
 
   
-    <article id="post-start" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2014/12/01/start/" class="article-date">
-  <time datetime="2014-11-30T22:13:35.000Z" itemprop="datePublished">Dec 1 2014</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
   
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2014/12/01/start/">ブログ開始</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>技術的に興味関心のあることを発信し</p>
-<p>みなさまの選択の幅を少しでも広げれればと思います。</p>
-<p>普段はC#.NETで開発をしていますが、<br>Microsoftもオープンソースな部分が増えましたし、<br>C#の良さを少しでも広めたいという思いもあります。</p>
-
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

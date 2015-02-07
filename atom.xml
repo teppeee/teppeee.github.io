@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-02T14:46:00.912Z</updated>
+  <updated>2015-02-07T23:12:34.053Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -15,12 +15,79 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[GAE/GO CloudSQL使ってみる]]></title>
+    <link href="http://teppeee.github.io/2015/02/08/useCloudSQL/"/>
+    <id>http://teppeee.github.io/2015/02/08/useCloudSQL/</id>
+    <published>2015-02-07T23:04:52.000Z</published>
+    <updated>2015-02-07T23:12:13.000Z</updated>
+    <content type="html"><![CDATA[<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
+<ul>
+<li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
+<li><a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">jinzhu/gorm</a></li>
+</ul>
+<p>gojiはシンプルで高速なWAFです。<br>middlewareを足すことで機能を追加することができます。</p>
+<p>ORMは他に<a href="https://github.com/coopernurse/gorp" target="_blank" rel="external">coopernurse/gorp</a>も有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみます。</p>
+<p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
+<a id="more"></a>
+
+<h2 id="DB作成">DB作成</h2>
+<p>cakephpのチュートリアルのサンプルを拝借しました。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`posts`</span> (</span></div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) unsigned <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`body`</span> <span class="built_in">text</span>,</div><div class="line">  <span class="string">`created_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`updated_at`</span> datetime <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="keyword">PRIMARY</span> <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">12</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8</div></pre></td></tr></table></figure>
+
+<p>createdとmodifiedの部分はgormに合わせて変更しました。<br>サンプルの内容も入れておきます。</p>
+<p>違うテーブル名やカラム名でもマッピングできるようですが、<br>最初ならマイグレーションファイル作るのがよさそうです。<br><a href="http://qiita.com/masahikoofjoyto/items/b2e6c2cad447e48f91ee" target="_blank" rel="external">http://qiita.com/masahikoofjoyto/items/b2e6c2cad447e48f91ee</a></p>
+<p>対応するmodel</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">	Id        <span class="typename">int</span></div><div class="line">	Title     <span class="typename">string</span></div><div class="line">	Body      <span class="typename">string</span></div><div class="line">	CreatedAt time.Time</div><div class="line">	UpdatedAt time.Time</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="ルーティング">ルーティング</h2>
+<p>簡単にルーティングを作成します。<br>gojiはgaeから使う場合は<code>http.Handle(&quot;/&quot;, goji.DefaultMux)</code>とします。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> db gorm.DB</div><div class="line"></div><div class="line"><span class="keyword">func</span> init() {</div><div class="line">	db, _ = gorm.Open(<span class="string">"mysql"</span>, <span class="string">"root@cloudsql(projectId:CouldSQLInstanceId)/dbname?charset=utf8&parseTime=True&loc=Japan"</span>)</div><div class="line"></div><div class="line">	posts := web.New()</div><div class="line">	goji.Handle(<span class="string">"/posts/*"</span>, posts)</div><div class="line">	posts.Use(middleware.SubRouter)</div><div class="line"></div><div class="line">	posts.Get(<span class="string">"/"</span>, View)</div><div class="line">	posts.Get(<span class="string">"/:id"</span>, ViewById)</div><div class="line">	posts.Post(<span class="string">"/edit/"</span>, Update)</div><div class="line">	http.Handle(<span class="string">"/"</span>, goji.DefaultMux)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>datetimeのマッピング時に標準時が使用されるためloc=Japanが必要でした。<br>posts以下をまとめるにはSubRouterというmiddlewareを使用します。</p>
+<h2 id="一覧をjsonで出力">一覧をjsonで出力</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> View(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	posts := []Post{}</div><div class="line">	db.Find(&posts)</div><div class="line"></div><div class="line">	w.Header().Set(<span class="string">"Content-Type"</span>, <span class="string">"application/json; charset=utf-8"</span>)</div><div class="line">	encoder := json.NewEncoder(w)</div><div class="line">	encoder.Encode(&posts)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="一件取得">一件取得</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> ViewById(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	post := Post{}</div><div class="line"></div><div class="line">	id, err := strconv.Atoi(c.URLParams[<span class="string">"id"</span>])</div><div class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> {</div><div class="line">		http.Error(w, err.Error(), http.StatusBadRequest)</div><div class="line">		<span class="keyword">return</span></div><div class="line">	}</div><div class="line"></div><div class="line">	db.Find(&post, id)</div><div class="line"></div><div class="line">	w.Header().Set(<span class="string">"Content-Type"</span>, <span class="string">"application/json; charset=utf-8"</span>)</div><div class="line">	encoder := json.NewEncoder(w)</div><div class="line">	encoder.Encode(&post)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="jsonをpostして新規追加と編集">jsonをpostして新規追加と編集</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">func</span> Update(c web.C, w http.ResponseWriter, r *http.Request) {</div><div class="line">	post := Post{}</div><div class="line">	err := json.NewDecoder(r.Body).Decode(&post)</div><div class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> {</div><div class="line">		http.Error(w, err.Error(), http.StatusBadRequest)</div><div class="line">		<span class="keyword">return</span></div><div class="line">	}</div><div class="line"></div><div class="line">	postForSave := Post{}</div><div class="line">	db.First(&postForSave, post.Id)</div><div class="line"></div><div class="line">	postForSave.Title = post.Title</div><div class="line">	postForSave.Body = post.Body</div><div class="line"></div><div class="line">	db.Save(&postForSave)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>そのままSaveできれば便利だったのですが、created_atが消えてしまいました。ちょっといまいちな感じになっています。</p>
+<p><code>{&quot;Id&quot;:2,&quot;Title&quot;:&quot;タイトル編集&quot;,&quot;Body&quot;:&quot;本文編集&quot;}</code><br>Idありでpostすると編集され、</p>
+<p><code>｛&quot;Title&quot;:&quot;タイトル追加&quot;,&quot;Body&quot;:&quot;ボディ追加&quot;}</code><br>Idがないと新規追加されます。</p>
+<p>テストやDB側が複雑になった場合の不安はありますが、<br>簡単なものであればすぐに作れそうです。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
+<ul>
+<li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
+<li><a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">jinzhu/gorm</a></li>
+</ul>
+<p>gojiはシンプルで高速なWAFです。<br>middlewareを足すことで機能を追加することができます。</p>
+<p>ORMは他に<a href="https://github.com/coopernurse/gorp" target="_blank" rel="external">coopernurse/gorp</a>も有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみます。</p>
+<p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
+]]>
+    
+    </summary>
+    
+      <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
+    
+      <category term="CloudSQL" scheme="http://teppeee.github.io/tags/CloudSQL/"/>
+    
+      <category term="Go言語" scheme="http://teppeee.github.io/tags/Go%E8%A8%80%E8%AA%9E/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[GAE/GO CloudSQL接続]]></title>
     <link href="http://teppeee.github.io/2015/02/02/connectCloudSQL/"/>
     <id>http://teppeee.github.io/2015/02/02/connectCloudSQL/</id>
     <published>2015-02-01T17:54:45.000Z</published>
-    <updated>2015-02-02T14:45:28.000Z</updated>
+    <updated>2015-02-07T23:12:28.000Z</updated>
     <content type="html"><![CDATA[<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
+<a id="more"></a>
+
 <h2 id="準備">準備</h2>
 <p>CloudSQLのインスタンスを作成し、</p>
 <p>アクセス制御　&gt; 承認済みのAppEngineアプリケーションを追加します。</p>
@@ -41,9 +108,8 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
-<h2 id="準備">準備</h2>
-<p>CloudSQLのインスタンスを作成し、</p>
-<p>アクセス制御　&gt; 承認済みのAppEngineアプリケーション]]>
+]]>
+    
     </summary>
     
       <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
