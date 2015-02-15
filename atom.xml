@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-15T02:41:35.911Z</updated>
+  <updated>2015-02-15T02:45:38.139Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/02/15/cloud-datastore/"/>
     <id>http://teppeee.github.io/2015/02/15/cloud-datastore/</id>
     <published>2015-02-15T02:21:20.000Z</published>
-    <updated>2015-02-15T02:39:47.000Z</updated>
+    <updated>2015-02-15T02:45:32.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Cloud_Datastoreについて">Cloud Datastoreについて</h2>
 <p>スキーマレスなオブジェクトデータベースです。</p>
 <p>Kindと呼ばれるテーブルみたいなものに<br>Entityと呼ばれるオブジェクトを格納できます。<br>Entityには一意のKeyが割り当てられています。<br>EntityのフィールドはPropertyといいます。</p>
@@ -31,11 +31,11 @@
 <h2 id="Putしてみる">Putしてみる</h2>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">    Id    <span class="typename">string</span> </div><div class="line">    Title <span class="typename">string</span></div><div class="line">    Body  <span class="typename">string</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//rは　*http.Request</span></div><div class="line">g := goon.NewGoon(r)</div><div class="line"></div><div class="line">post := Post{Id: <span class="string">"1"</span>, Title: <span class="string">"タイトル"</span>, Body: <span class="string">"本文です"</span>}</div><div class="line"></div><div class="line">g.Put(&post)</div></pre></td></tr></table></figure>
 
-<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer1.png" alt="DatastoreResult1"><br>これだけのコードでKind作成してKeyを割り振ってくれます。</p>
+<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer1.png" alt="DatastoreResult1"><br>これだけのコードでKind作成してKeyを割り振ってくれます。<br>Key Nameはprimary keyの別名みたいなものですが、<br>ない場合はIDが割り振られます。</p>
 <p>goonのタグをつけてみます。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">    Id    <span class="typename">string</span> <span class="string">`datastore:"-" goon:"id"`</span></div><div class="line">    Title <span class="typename">string</span></div><div class="line">    Body  <span class="typename">string</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
-<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer2.png" alt="DatastoreResult2"><br>IdはEntityに含まれなくなり、<br>Key Nameに割り振られるようになります。<br>Key Nameはprimary keyの別名みたいなものです。</p>
+<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer2.png" alt="DatastoreResult2"><br>IdはEntityに含まれなくなり、<br>Key Nameに入るようになりました。</p>
 <h2 id="Getしてみる">Getしてみる</h2>
 <p>Key Name指定で取得</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">post</span> := Post{Id: <span class="string">"1"</span>} </div><div class="line">g := goon.NewGoon(r)</div><div class="line"></div><div class="line">err := g.Get(&<span class="built_in">post</span>)</div></pre></td></tr></table></figure>
