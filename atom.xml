@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-12T14:42:09.614Z</updated>
+  <updated>2015-02-15T02:40:01.068Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,55 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[GAE/GO Cloud Datastoreを使ってみる]]></title>
+    <link href="http://teppeee.github.io/2015/02/15/cloud-datastore/"/>
+    <id>http://teppeee.github.io/2015/02/15/cloud-datastore/</id>
+    <published>2015-02-15T02:21:20.000Z</published>
+    <updated>2015-02-15T02:39:47.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Cloud_Datastoreについて">Cloud Datastoreについて</h2>
+<p>スキーマレスなオブジェクトデータベースです。</p>
+<p>Kindと呼ばれるテーブルみたいなものに<br>Entityと呼ばれるオブジェクトを格納できます。<br>Entityには一意のKeyが割り当てられています。<br>EntityのフィールドはPropertyといいます。</p>
+<a id="more"></a>
+
+<h2 id="Go言語から使う">Go言語から使う</h2>
+<p>標準のappengine/datastoreパッケージをラップしてくれた<br><a href="http://godoc.org/github.com/mjibson/goon" target="_blank" rel="external">mjibson/goon</a>を使うのが便利でよさそうです。</p>
+<p><code>goapp get github.com/mjibson/goon</code></p>
+<h2 id="Putしてみる">Putしてみる</h2>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">    Id    <span class="typename">string</span> </div><div class="line">    Title <span class="typename">string</span></div><div class="line">    Body  <span class="typename">string</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//rは　*http.Request</span></div><div class="line">g := goon.NewGoon(r)</div><div class="line"></div><div class="line">post := Post{Id: <span class="string">"1"</span>, Title: <span class="string">"タイトル"</span>, Body: <span class="string">"本文です"</span>}</div><div class="line"></div><div class="line">g.Put(&post)</div></pre></td></tr></table></figure>
+
+<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer1.png" alt="DatastoreResult1"><br>これだけのコードでKind作成してKeyを割り振ってくれます。</p>
+<p>goonのタグをつけてみます。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> {</div><div class="line">    Id    <span class="typename">string</span> <span class="string">`datastore:"-" goon:"id"`</span></div><div class="line">    Title <span class="typename">string</span></div><div class="line">    Body  <span class="typename">string</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>結果：<br><img src="http://teppeee.github.io/img/Datastore Viewer2.png" alt="DatastoreResult2"><br>IdはEntityに含まれなくなり、<br>Key Nameに割り振られるようになります。<br>Key Nameはprimary keyの別名みたいなものです。</p>
+<h2 id="Getしてみる">Getしてみる</h2>
+<p>Key Name指定で取得</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">post</span> := Post{Id: <span class="string">"1"</span>} </div><div class="line">g := goon.NewGoon(r)</div><div class="line"></div><div class="line">err := g.Get(&<span class="built_in">post</span>)</div></pre></td></tr></table></figure>
+
+<p>全件取得</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">posts := []Post{}</div><div class="line">g := goon.NewGoon(r)</div><div class="line"></div><div class="line">	g.GetAll(datastore.NewQuery(<span class="string">"Post"</span>), &posts)</div></pre></td></tr></table></figure>
+
+
+<p>Queryのメソッドの組み合わせて簡単なフィルターやソートは可能です。</p>
+<h2 id="感想">感想</h2>
+<p>goon優秀です。<br>Memcacheへのキャッシュ機能もあります。<br>さわってみただけでしたが、Datastore自体は癖があるので、使う時は注意がいりそうです。</p>
+<p>参考</p>
+<ul>
+<li><a href="http://qiita.com/hogedigo/items/fae5b6fe7071becd4051" target="_blank" rel="external">GAE/Goのハマったところ( ・᷄ὢ・᷅ )</a></li>
+<li><a href="GAE/Go%E3%81%AEdatastore%E3%81%AE%E6%8C%99%E5%8B%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">GAE/Goのdatastoreの挙動について</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Cloud_Datastoreについて">Cloud Datastoreについて</h2>
+<p>スキーマレスなオブジェクトデータベースです。</p>
+<p>Kindと呼ばれるテーブルみたいなものに<br>Entityと呼ばれるオブジェクトを格納できます。<br>Entityには一意のKeyが割り当てられています。<br>EntityのフィールドはPropertyといいます。</p>
+]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[GAE/GO CloudSQL使ってみる]]></title>
