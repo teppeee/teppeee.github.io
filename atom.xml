@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[teppeeeのブログ]]></title>
-  
+  <subtitle><![CDATA[Blog on GithubPages]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-15T02:45:38.139Z</updated>
+  <updated>2015-02-18T16:35:47.761Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://teppeee.github.io/2015/02/15/cloud-datastore/"/>
     <id>http://teppeee.github.io/2015/02/15/cloud-datastore/</id>
     <published>2015-02-15T02:21:20.000Z</published>
-    <updated>2015-02-15T02:45:32.000Z</updated>
+    <updated>2015-02-18T16:28:38.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Cloud_Datastoreについて">Cloud Datastoreについて</h2>
 <p>スキーマレスなオブジェクトデータベースです。</p>
 <p>Kindと呼ばれるテーブルみたいなものに<br>Entityと呼ばれるオブジェクトを格納できます。<br>Entityには一意のKeyが割り当てられています。<br>EntityのフィールドはPropertyといいます。</p>
@@ -60,6 +60,12 @@
 ]]>
     
     </summary>
+    
+      <category term="Go言語" scheme="http://teppeee.github.io/tags/Go%E8%A8%80%E8%AA%9E/"/>
+    
+      <category term="GAE" scheme="http://teppeee.github.io/tags/GAE/"/>
+    
+      <category term="Cloud Datastore" scheme="http://teppeee.github.io/tags/Cloud-Datastore/"/>
     
   </entry>
   
