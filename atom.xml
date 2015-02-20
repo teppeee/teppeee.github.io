@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Blog on GithubPages]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-20T22:59:29.014Z</updated>
+  <updated>2015-02-20T23:00:39.967Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -19,9 +19,11 @@
     <link href="http://teppeee.github.io/2015/02/21/readreplica/"/>
     <id>http://teppeee.github.io/2015/02/21/readreplica/</id>
     <published>2015-02-20T22:55:27.000Z</published>
-    <updated>2015-02-20T22:59:21.000Z</updated>
+    <updated>2015-02-20T23:00:21.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://teppeee.github.io/img/btnReadReplica.png" alt="リードレプリカ"></p>
 <p>左上のリードレプリカボタンが気になっていました。</p>
+<a id="more"></a>
+
 <ul>
 <li><a href="https://cloud.google.com/sql/docs/replication" target="_blank" rel="external">https://cloud.google.com/sql/docs/replication</a></li>
 </ul>
@@ -38,8 +40,8 @@
     <summary type="html">
     <![CDATA[<p><img src="http://teppeee.github.io/img/btnReadReplica.png" alt="リードレプリカ"></p>
 <p>左上のリードレプリカボタンが気になっていました。</p>
-<ul>
-<li><a href="https://c]]>
+]]>
+    
     </summary>
     
       <category term="CloudSQL" scheme="http://teppeee.github.io/tags/CloudSQL/"/>
