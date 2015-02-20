@@ -70,6 +70,69 @@
     <div id="main">
       
   
+    <article id="post-readreplica" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/02/21/readreplica/" class="article-date">
+  <time datetime="2015-02-20T22:55:27.000Z" itemprop="datePublished">Feb 21 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2015/02/21/readreplica/">CloudSQL リードレプリカを作ってみる</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p><img src="http://teppeee.github.io/img/btnReadReplica.png" alt="リードレプリカ"></p>
+<p>左上のリードレプリカボタンが気になっていました。</p>
+<ul>
+<li><a href="https://cloud.google.com/sql/docs/replication" target="_blank" rel="external">https://cloud.google.com/sql/docs/replication</a></li>
+</ul>
+<blockquote>
+<p>Additional read capacity for applications dominated by reads.<br>In-cloud analytics that doesn’t interfere with your transactional database.</p>
+</blockquote>
+<p>とあり、負荷分散を図ることができるようです。<br>バイナリログを使用することによるパフォーマンスとストレージのオーバーヘッドがあります。</p>
+<p>ボタンをおしてみます。</p>
+<p><img src="http://teppeee.github.io/img/readreplica1.png" alt="Alt text"></p>
+<p>保存すると</p>
+<p><img src="http://teppeee.github.io/img/readreplica2.png" alt="Alt text"></p>
+<p>一瞬でスレーブを作成することができました。<br>もちろんレプリカ分もお金かかるので注意です。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudSQL/">CloudSQL</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+
+  
     <article id="post-cloud-datastore" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
@@ -575,60 +638,6 @@
 			<span class="tags">
 				
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
-    <article id="post-adventcalender2014" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2014/12/08/adventcalender2014/" class="article-date">
-  <time datetime="2014-12-07T21:46:43.000Z" itemprop="datePublished">Dec 8 2014</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2014/12/08/adventcalender2014/">アドベントカレンダーの季節になりました</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-    	<p>この時期は毎年エンジニア達がヨーロッパの<a href="http://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%88%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC" target="_blank" rel="external">アドベントカレンダーの風習</a>にちなんで<br>12月1～24日まで１日ずつ何かのテーマについて記事を書くイベントがあります。</p>
-<p>結構深いネタが多く、見るだけでも楽しめます。<br>私は今年はC#、Go、Js関連をメインで見ています。</p>
-<ul>
-<li><a href="http://qiita.com/advent-calendar" target="_blank" rel="external">アドベントカレンダーQiita</a></li>
-</ul>
-
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Advent-Calendar/">Advent Calendar</a></li></ul>
 
 			</span>
 		</div>

@@ -3,17 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: CloudSQL | teppeeeのブログ</title>
+  <title>CloudSQL リードレプリカを作ってみる | teppeeeのブログ</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="大阪の広告代理店で働くエンジニアの技術ブログ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="teppeeeのブログ">
-<meta property="og:url" content="http://teppeee.github.io/tags/CloudSQL/">
+  <meta name="description" content="左上のリードレプリカボタンが気になっていました。
+
+https://cloud.google.com/sql/docs/replication
+
+
+Additional read capacity for applications dominated by reads.In-cloud analytics that doesn’t interfere with your transactiona">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CloudSQL リードレプリカを作ってみる">
+<meta property="og:url" content="http://teppeee.github.io/2015/02/21/readreplica/">
 <meta property="og:site_name" content="teppeeeのブログ">
-<meta property="og:description" content="大阪の広告代理店で働くエンジニアの技術ブログ">
+<meta property="og:description" content="左上のリードレプリカボタンが気になっていました。
+
+https://cloud.google.com/sql/docs/replication
+
+
+Additional read capacity for applications dominated by reads.In-cloud analytics that doesn’t interfere with your transactiona">
+<meta property="og:image" content="http://teppeee.github.io/img/btnReadReplica.png">
+<meta property="og:image" content="http://teppeee.github.io/img/readreplica1.png">
+<meta property="og:image" content="http://teppeee.github.io/img/readreplica2.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="teppeeeのブログ">
-<meta name="twitter:description" content="大阪の広告代理店で働くエンジニアの技術ブログ">
+<meta name="twitter:title" content="CloudSQL リードレプリカを作ってみる">
+<meta name="twitter:description" content="左上のリードレプリカボタンが気になっていました。
+
+https://cloud.google.com/sql/docs/replication
+
+
+Additional read capacity for applications dominated by reads.In-cloud analytics that doesn’t interfere with your transactiona">
 
   
     <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
@@ -44,6 +62,9 @@
 
 
   
+      
+      <meta name="keywords" content="CloudSQL">
+      
 </head>
 
 <body>
@@ -68,9 +89,7 @@
 	</div>
 </header>
     <div id="main">
-      
-  
-    <article id="post-readreplica" class="post">
+      <article id="post-readreplica" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
 			<a href="/2015/02/21/readreplica/" class="article-date">
@@ -86,8 +105,8 @@
 	<header class="entry-header">
 		
   
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/02/21/readreplica/">CloudSQL リードレプリカを作ってみる</a>
+    <h1 class="article-title entry-title" itemprop="name">
+      CloudSQL リードレプリカを作ってみる
     </h1>
   
 
@@ -124,133 +143,26 @@
 		</div>
 	</footer>
 	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
-    <article id="post-useCloudSQL" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2015/02/08/useCloudSQL/" class="article-date">
-  <time datetime="2015-02-07T23:04:52.000Z" itemprop="datePublished">Feb 8 2015</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/02/08/useCloudSQL/">GAE/GO CloudSQLを使ってみる</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-			<p>ルーティングとORMには以下のものを使わせてもらいます。<br>goは好きなものを選択して作れるのがよいですね。</p>
-<ul>
-<li><a href="https://github.com/zenazn/goji" target="_blank" rel="external">enazn/goji</a></li>
-<li><a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">jinzhu/gorm</a></li>
-</ul>
-<p>gojiはシンプルで高速なWAFです。<br>middlewareを足すことで機能を追加することができます。</p>
-<p>ORMは他に<a href="https://github.com/coopernurse/gorp" target="_blank" rel="external">coopernurse/gorp</a>も有名らしいですが、gormのほうがドキュメントが充実しており機能も豊富なのでgormを使ってみます。</p>
-<p><code>goapp get github.com/zenazn/goji</code><br><code>goapp get github.com/jinzhu/gorm</code></p>
-
-			
-				<p class="article-more-link">
-					<a href="/2015/02/08/useCloudSQL/#more">Read More</a>
-				</p>
-      
     
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudSQL/">CloudSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li></ul>
+<nav id="article-nav">
+  
+  
+    <a href="/2015/02/15/cloud-datastore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          GAE/GO Cloud Datastoreを使ってみる
+        
+      </div>
+    </a>
+  
+</nav>
 
-			</span>
-		</div>
-	</footer>
-	
+  
 </article>
 
 
-	<hr class="article-devider">
 
-
-
-
-  
-    <article id="post-connectCloudSQL" class="post">
-	<footer class="entry-meta-header">
-		<span class="meta-elements date">
-			<a href="/2015/02/02/connectCloudSQL/" class="article-date">
-  <time datetime="2015-02-01T17:54:45.000Z" itemprop="datePublished">Feb 2 2015</time>
-</a>
-		</span>
-		<span class="meta-elements author">teppeee</span>
-		<div class="commentscount">
-			
-		</div>
-	</footer>
-	
-	<header class="entry-header">
-		
-  
-    <h1 itemprop="name" class="entry-title">
-      <a class="article-title" href="/2015/02/02/connectCloudSQL/">GAE/GO CloudSQL接続</a>
-    </h1>
-  
-
-	</header>
-	<div class="entry-content">
-		
-			<p>ローカル環境では普通のmysqlと同様でしたが、<br>GAEから繋ごうとするとハマりました。</p>
-
-			
-				<p class="article-more-link">
-					<a href="/2015/02/02/connectCloudSQL/#more">Read More</a>
-				</p>
-      
-    
-	</div>
-	<footer class="entry-footer">
-		<div class="entry-meta-footer">
-			<span class="category">
-				
-			</span>
-			<span class="tags">
-				
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudSQL/">CloudSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAE/">GAE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go言語/">Go言語</a></li></ul>
-
-			</span>
-		</div>
-	</footer>
-	
-</article>
-
-
-	<hr class="article-devider">
-
-
-
-
-  
-  
 
 
     </div>
