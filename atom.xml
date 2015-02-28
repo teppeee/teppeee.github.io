@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Blog on GithubPages]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-02-20T23:00:39.967Z</updated>
+  <updated>2015-02-28T23:50:54.394Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,49 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Windows Azure Websitesが簡単すぎる]]></title>
+    <link href="http://teppeee.github.io/2015/03/01/Azure-Websites1/"/>
+    <id>http://teppeee.github.io/2015/03/01/Azure-Websites1/</id>
+    <published>2015-02-28T23:44:49.000Z</published>
+    <updated>2015-02-28T23:50:36.000Z</updated>
+    <content type="html"><![CDATA[<p>Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。<br><img src="http://teppeee.github.io/img/azure_web.png" alt="Alt text"><br>中でも注目はPaasであるWebsitesです。<br><a href="http://azure.microsoft.com/ja-jp/documentation/articles/choose-web-site-cloud-service-vm/" target="_blank" rel="external">Azure Websites、Cloud Services、および Virtual Machines の比較</a><br>を見てもお手軽な割に高機能です。</p>
+<a id="more"></a>
+
+<h2 id="Azureについて概説はこちら">Azureについて概説はこちら</h2>
+<ul>
+<li><a href="http://www.buildinsider.net/web/azure/01" target="_blank" rel="external">まだ知らない人のための最新Azure入門（2014年8月版）</a><br>機能追加が早いので現在は少し変わっています。</li>
+</ul>
+<h2 id="WebSitesを試す">WebSitesを試す</h2>
+<h3 id="WebSites作成">WebSites作成</h3>
+<p>まずはAzureの登録を済ませます。</p>
+<p>次にWebsitesを作成します。<br>VisualStudioからも作成できますが、ポータルから作成してみます。</p>
+<p>「＋新規」ボタンより<br>コンピューティング &gt; Webサイト　&gt; 簡易作成<br><img src="http://teppeee.github.io/img/Websites1.png" alt="WebSites作成"><br>URLを入力し、地域を選択。<br>日本もデータセンターがあるのがよいです。</p>
+<p>これだけで作成できました。<br><img src="http://teppeee.github.io/img/website2.png" alt="Alt text"></p>
+<h3 id="WEBアプリ作成とデプロイ">WEBアプリ作成とデプロイ</h3>
+<p>Webアプリを作成しDeployします。</p>
+<p>VisualStudio でASP.NET MVCのプロジェクトを作成します。<br><img src="http://teppeee.github.io/img/websites3.png" alt="Alt text"></p>
+<p>あとはプロジェクトのpublishで作成したWebsitesを選ぶだけです<br><img src="http://teppeee.github.io/img/websites6.png" alt="Alt text"></p>
+<p><img src="http://teppeee.github.io/img/webSites4.png" alt="Alt text"></p>
+<p>差分を確認してpublishボタンを押すとデプロイ完了<br><img src="http://teppeee.github.io/img/webSites5.png" alt="Alt text"></p>
+<p>GAEではハマってしまいましたが、<br>Azureは驚くほど簡単にデプロイできました。</p>
+<h2 id="その他">その他</h2>
+<p>ポータルより<br>デプロイ資格情報のリセットしてIDPASSを設定すると<br>FTP接続でもデプロイできます<br><img src="http://teppeee.github.io/img/website8.png" alt="Alt text"></p>
+<p>ポータルより　<br>構成　&gt; アプリケーション診断 or サイト診断<br>でログ記録をオンするとログが保存され、<br>VisualStudio上のサーバーエクスプローラーで確認できます。<br><img src="http://teppeee.github.io/img/azurelog.png" alt="Alt text"></p>
+<p>ログは新ポータルではリアルタイムで確認できたりするようです。<br><img src="http://teppeee.github.io/img/azureportalNew.png" alt="Alt text"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。<br><img src="http://teppeee.github.io/img/azure_web.png" alt="Alt text"><br>中でも注目はPaasであるWebsitesです。<br><a href="http://azure.microsoft.com/ja-jp/documentation/articles/choose-web-site-cloud-service-vm/" target="_blank" rel="external">Azure Websites、Cloud Services、および Virtual Machines の比較</a><br>を見てもお手軽な割に高機能です。</p>
+]]>
+    
+    </summary>
+    
+      <category term="Windows Azure" scheme="http://teppeee.github.io/tags/Windows-Azure/"/>
+    
+      <category term="WebSites" scheme="http://teppeee.github.io/tags/WebSites/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[CloudSQL リードレプリカを作ってみる]]></title>

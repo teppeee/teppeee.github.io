@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Windows Azure Websitesが簡単すぎる | teppeeeのブログ</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。中でも注目はPaasであるWebsitesです。Azure Websites、Cloud Services、および Virtual Machines の比較を見てもお手軽な割に高機能です。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Azure Websitesが簡単すぎる">
+<meta property="og:url" content="http://teppeee.github.io/2015/03/01/Azure-Websites1/">
+<meta property="og:site_name" content="teppeeeのブログ">
+<meta property="og:description" content="Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。中でも注目はPaasであるWebsitesです。Azure Websites、Cloud Services、および Virtual Machines の比較を見てもお手軽な割に高機能です。">
+<meta property="og:image" content="http://teppeee.github.io/img/azure_web.png">
+<meta property="og:image" content="http://teppeee.github.io/img/Websites1.png">
+<meta property="og:image" content="http://teppeee.github.io/img/website2.png">
+<meta property="og:image" content="http://teppeee.github.io/img/websites3.png">
+<meta property="og:image" content="http://teppeee.github.io/img/websites6.png">
+<meta property="og:image" content="http://teppeee.github.io/img/webSites4.png">
+<meta property="og:image" content="http://teppeee.github.io/img/webSites5.png">
+<meta property="og:image" content="http://teppeee.github.io/img/website8.png">
+<meta property="og:image" content="http://teppeee.github.io/img/azurelog.png">
+<meta property="og:image" content="http://teppeee.github.io/img/azureportalNew.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows Azure Websitesが簡単すぎる">
+<meta name="twitter:description" content="Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。中でも注目はPaasであるWebsitesです。Azure Websites、Cloud Services、および Virtual Machines の比較を見てもお手軽な割に高機能です。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-57669979-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  
+      
+      <meta name="keywords" content="Windows Azure,WebSites">
+      
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			
+			<!--<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>-->
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://teppeee.github.io"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-Azure-Websites1" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/03/01/Azure-Websites1/" class="article-date">
+  <time datetime="2015-02-28T23:44:49.000Z" itemprop="datePublished">Mar 1 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Windows Azure Websitesが簡単すぎる
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Microsoftのクラウド環境も機能が増え非常に使いやすくなっていました。VMロールが追加されたころしか知らないので、衝撃的です。PHPやMySQLも簡単に使えるようです。<br><img src="http://teppeee.github.io/img/azure_web.png" alt="Alt text"><br>中でも注目はPaasであるWebsitesです。<br><a href="http://azure.microsoft.com/ja-jp/documentation/articles/choose-web-site-cloud-service-vm/" target="_blank" rel="external">Azure Websites、Cloud Services、および Virtual Machines の比較</a><br>を見てもお手軽な割に高機能です。</p>
+<a id="more"></a>
+
+<h2 id="Azureについて概説はこちら">Azureについて概説はこちら</h2>
+<ul>
+<li><a href="http://www.buildinsider.net/web/azure/01" target="_blank" rel="external">まだ知らない人のための最新Azure入門（2014年8月版）</a><br>機能追加が早いので現在は少し変わっています。</li>
+</ul>
+<h2 id="WebSitesを試す">WebSitesを試す</h2>
+<h3 id="WebSites作成">WebSites作成</h3>
+<p>まずはAzureの登録を済ませます。</p>
+<p>次にWebsitesを作成します。<br>VisualStudioからも作成できますが、ポータルから作成してみます。</p>
+<p>「＋新規」ボタンより<br>コンピューティング &gt; Webサイト　&gt; 簡易作成<br><img src="http://teppeee.github.io/img/Websites1.png" alt="WebSites作成"><br>URLを入力し、地域を選択。<br>日本もデータセンターがあるのがよいです。</p>
+<p>これだけで作成できました。<br><img src="http://teppeee.github.io/img/website2.png" alt="Alt text"></p>
+<h3 id="WEBアプリ作成とデプロイ">WEBアプリ作成とデプロイ</h3>
+<p>Webアプリを作成しDeployします。</p>
+<p>VisualStudio でASP.NET MVCのプロジェクトを作成します。<br><img src="http://teppeee.github.io/img/websites3.png" alt="Alt text"></p>
+<p>あとはプロジェクトのpublishで作成したWebsitesを選ぶだけです<br><img src="http://teppeee.github.io/img/websites6.png" alt="Alt text"></p>
+<p><img src="http://teppeee.github.io/img/webSites4.png" alt="Alt text"></p>
+<p>差分を確認してpublishボタンを押すとデプロイ完了<br><img src="http://teppeee.github.io/img/webSites5.png" alt="Alt text"></p>
+<p>GAEではハマってしまいましたが、<br>Azureは驚くほど簡単にデプロイできました。</p>
+<h2 id="その他">その他</h2>
+<p>ポータルより<br>デプロイ資格情報のリセットしてIDPASSを設定すると<br>FTP接続でもデプロイできます<br><img src="http://teppeee.github.io/img/website8.png" alt="Alt text"></p>
+<p>ポータルより　<br>構成　&gt; アプリケーション診断 or サイト診断<br>でログ記録をオンするとログが保存され、<br>VisualStudio上のサーバーエクスプローラーで確認できます。<br><img src="http://teppeee.github.io/img/azurelog.png" alt="Alt text"></p>
+<p>ログは新ポータルではリアルタイムで確認できたりするようです。<br><img src="http://teppeee.github.io/img/azureportalNew.png" alt="Alt text"></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebSites/">WebSites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-Azure/">Windows Azure</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/02/21/readreplica/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          CloudSQL リードレプリカを作ってみる
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:teppeee.github.io">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 teppeee<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
