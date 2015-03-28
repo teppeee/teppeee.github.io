@@ -13,10 +13,10 @@
 <meta property="og:description" content="SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。SQLServerに比べると機能は少ないようですが、PaaSなのでMicrosoftがいろいろと管理してくれます。">
 <meta property="og:image" content="http://teppeee.github.io\img\createSQLdatabase.png">
 <meta property="og:image" content="http://teppeee.github.io\img\SQLDatabase_vs.png">
-<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseVS.png">
-<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\SQLdatabaseKanri.png">
-<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabase2.png">
-<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseLink.png">
+<meta property="og:image" content="http://teppeee.github.io\img\SQLDatabaseVS.png">
+<meta property="og:image" content="http://teppeee.github.io\img\SQLdatabaseKanri.png">
+<meta property="og:image" content="http://teppeee.github.io\img\SQLDatabase2.png">
+<meta property="og:image" content="http://teppeee.github.io\img\SQLDatabaseLink.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSQLDatabaseを使ってみる">
 <meta name="twitter:description" content="SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。SQLServerに比べると機能は少ないようですが、PaaSなのでMicrosoftがいろいろと管理してくれます。">
@@ -107,12 +107,12 @@
 <p>新規ボタン &gt; データサービス &gt; SQLデータベース　&gt; 簡易サービス　を選択し<br>データベース名を入力するだけです。</p>
 <p><img src="http://teppeee.github.io\img\createSQLdatabase.png" alt="createSQLdatabase.png"></p>
 <p><img src="http://teppeee.github.io\img\SQLDatabase_vs.png" alt="SQLDatabase_vs.png"><br>作成されました。</p>
-<p>下の方のメニューの「VISUAL STUDIOで開く」というボタンを押してみると<br>VSでSQLServerObjectExplorerが開いて編集できるようです。<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseVS.png" alt="SQLDatabaseVS.png"><br>適当にテーブルを作成し、データを入れておきました。</p>
-<p>管理ポータルからもsilverlightの管理画面があり編集できるようでした。<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\SQLdatabaseKanri.png" alt="SQLdatabaseKanri.png"></p>
+<p>下の方のメニューの「VISUAL STUDIOで開く」というボタンを押してみると<br>VSでSQLServerObjectExplorerが開いて編集できるようです。<br><img src="http://teppeee.github.io\img\SQLDatabaseVS.png" alt="SQLDatabaseVS.png"><br>適当にテーブルを作成し、データを入れておきました。</p>
+<p>管理ポータルからもsilverlightの管理画面があり編集できるようでした。<br><img src="http://teppeee.github.io\img\SQLdatabaseKanri.png" alt="SQLdatabaseKanri.png"></p>
 <h2 id="SQLDatabase接続">SQLDatabase接続</h2>
 <p>接続の仕方は非常に親切で管理ポータル上の「接続文字列の表示」で<br>各言語の接続文字列を表示してくれます。親切です。</p>
-<p><img src="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabase2.png" alt="SQLDatabase2.png"></p>
-<p>Websitesから接続するためには<br>Websitesの「リンク済みリソース」よりSQLDatabaseをリンクさせておきます<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseLink.png" alt="SQLDatabaseLink.png"></p>
+<p><img src="http://teppeee.github.io\img\SQLDatabase2.png" alt="SQLDatabase2.png"></p>
+<p>Websitesから接続するためには<br>Websitesの「リンク済みリソース」よりSQLDatabaseをリンクさせておきます<br><img src="http://teppeee.github.io\img\SQLDatabaseLink.png" alt="SQLDatabaseLink.png"></p>
 <h2 id="実際に接続してみる">実際に接続してみる</h2>
 <p><a href="https://code.google.com/p/dapper-dot-net/" target="_blank" rel="external">Dapper</a>を使って、テーブルの中身をjsonで出力してみます。</p>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="keyword">class</span> Post</div><div class="line"> {</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Id { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Title { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Body { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line"> }</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> PostsController : Controller</div><div class="line"> {</div><div class="line">       <span class="comment">// GET: Post</span></div><div class="line">       <span class="keyword">public</span> ActionResult <span class="title">Index</span>()</div><div class="line">       {</div><div class="line">           <span class="keyword">var</span> posts = <span class="keyword">new</span> List&lt;Post&gt;();</div><div class="line">           <span class="keyword">string</span> constring = <span class="string">"接続文字列"</span>;</div><div class="line">           <span class="keyword">using</span> (IDbConnection db = <span class="keyword">new</span> SqlConnection(constring)) {</div><div class="line">               db.Open();</div><div class="line">               posts = db.Query&lt;Post&gt;(<span class="string">"select * from posts"</span>).ToList();</div><div class="line">               db.Close();</div><div class="line">           }</div><div class="line"></div><div class="line">           <span class="keyword">return</span> Json(posts, JsonRequestBehavior.AllowGet);</div><div class="line">       }</div><div class="line"> }</div></pre></td></tr></table></figure>
