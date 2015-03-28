@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SSQLDatabaseを使ってみる | teppeeeのブログ</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。SQLServerに比べると機能は少ないようですが、PaaSなのでMicrosoftがいろいろと管理してくれます。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSQLDatabaseを使ってみる">
+<meta property="og:url" content="http://teppeee.github.io/2015/03/29/SQLDatabase1/">
+<meta property="og:site_name" content="teppeeeのブログ">
+<meta property="og:description" content="SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。SQLServerに比べると機能は少ないようですが、PaaSなのでMicrosoftがいろいろと管理してくれます。">
+<meta property="og:image" content="http://teppeee.github.io\img\createSQLdatabase.png">
+<meta property="og:image" content="http://teppeee.github.io\img\SQLDatabase_vs.png">
+<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseVS.png">
+<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLdatabaseKanri.png">
+<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLDatabase2.png">
+<meta property="og:image" content="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLDatabaseLink.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSQLDatabaseを使ってみる">
+<meta name="twitter:description" content="SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。SQLServerに比べると機能は少ないようですが、PaaSなのでMicrosoftがいろいろと管理してくれます。">
+
+  
+    <link rel="alternative" href="/atom.xml" title="teppeeeのブログ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-57669979-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  
+      
+      <meta name="keywords" content="Windows Azure,SQLDatabase">
+      
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			
+			<!--<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>-->
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://teppeee.github.io"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-SQLDatabase1" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2015/03/29/SQLDatabase1/" class="article-date">
+  <time datetime="2015-03-28T23:30:52.000Z" itemprop="datePublished">Mar 29 2015</time>
+</a>
+		</span>
+		<span class="meta-elements author">teppeee</span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      SSQLDatabaseを使ってみる
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。<br>SQLServerに比べると機能は少ないようですが、<br>PaaSなのでMicrosoftがいろいろと管理してくれます。</p>
+<p><a id="more"></a></p>
+<h2 id="SQLDatabase作成">SQLDatabase作成</h2>
+<p>新規ボタン &gt; データサービス &gt; SQLデータベース　&gt; 簡易サービス　を選択し<br>データベース名を入力するだけです。</p>
+<p><img src="http://teppeee.github.io\img\createSQLdatabase.png" alt="createSQLdatabase.png"></p>
+<p><img src="http://teppeee.github.io\img\SQLDatabase_vs.png" alt="SQLDatabase_vs.png"><br>作成されました。</p>
+<p>下の方のメニューの「VISUAL STUDIOで開く」というボタンを押してみると<br>VSでSQLServerObjectExplorerが開いて編集できるようです。<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\SQLDatabaseVS.png" alt="SQLDatabaseVS.png"><br>適当にテーブルを作成し、データを入れておきました。</p>
+<p>管理ポータルからもsilverlightの管理画面があり編集できるようでした。<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLdatabaseKanri.png" alt="SQLdatabaseKanri.png"></p>
+<h2 id="SQLDatabase接続">SQLDatabase接続</h2>
+<p>接続の仕方は非常に親切で管理ポータル上の「接続文字列の表示」で<br>各言語の接続文字列を表示してくれます。親切です。</p>
+<p><img src="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLDatabase2.png" alt="SQLDatabase2.png"></p>
+<p>Websitesから接続するためには<br>Websitesの「リンク済みリソース」よりSQLDatabaseをリンクさせておきます<br><img src="![createSQLdatabase.png](http://teppeee.github.io\img\img\SQLDatabaseLink.png" alt="SQLDatabaseLink.png"></p>
+<h2 id="実際に接続してみる">実際に接続してみる</h2>
+<p><a href="https://code.google.com/p/dapper-dot-net/" target="_blank" rel="external">Dapper</a>を使って、テーブルの中身をjsonで出力してみます。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="keyword">class</span> Post</div><div class="line"> {</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Id { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Title { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line">       <span class="keyword">public</span> <span class="keyword">string</span> Body { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div><div class="line"> }</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> PostsController : Controller</div><div class="line"> {</div><div class="line">       <span class="comment">// GET: Post</span></div><div class="line">       <span class="keyword">public</span> ActionResult <span class="title">Index</span>()</div><div class="line">       {</div><div class="line">           <span class="keyword">var</span> posts = <span class="keyword">new</span> List&lt;Post&gt;();</div><div class="line">           <span class="keyword">string</span> constring = <span class="string">"接続文字列"</span>;</div><div class="line">           <span class="keyword">using</span> (IDbConnection db = <span class="keyword">new</span> SqlConnection(constring)) {</div><div class="line">               db.Open();</div><div class="line">               posts = db.Query&lt;Post&gt;(<span class="string">"select * from posts"</span>).ToList();</div><div class="line">               db.Close();</div><div class="line">           }</div><div class="line"></div><div class="line">           <span class="keyword">return</span> Json(posts, JsonRequestBehavior.AllowGet);</div><div class="line">       }</div><div class="line"> }</div></pre></td></tr></table></figure>
+
+<p>デプロイして<br><a href="http://teppeee.azurewebsites.net/posts" target="_blank" rel="external">http://teppeee.azurewebsites.net/posts</a><br>にアクセスすると</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[{"<span class="attribute">Id</span>":<span class="value"><span class="string">"1"</span></span>,"<span class="attribute">Title</span>":<span class="value"><span class="string">"タイトル1"</span></span>,"<span class="attribute">Body</span>":<span class="value"><span class="string">"本文1本文1本文1"</span></span>},{"<span class="attribute">Id</span>":<span class="value"><span class="string">"2"</span></span>,"<span class="attribute">Title</span>":<span class="value"><span class="string">"タイトル2"</span></span>,"<span class="attribute">Body</span>":<span class="value"><span class="string">"本文2本文2本文2"</span></span>},{"<span class="attribute">Id</span>":<span class="value"><span class="string">"3"</span></span>,"<span class="attribute">Title</span>":<span class="value"><span class="string">"タイトル3"</span></span>,"<span class="attribute">Body</span>":<span class="value"><span class="string">"本文3本文3本文3"</span></span>}]</div></pre></td></tr></table></figure>
+
+<p>接続できました。</p>
+<p>導入は非常に簡単にできることがわかりました。</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLDatabase/">SQLDatabase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-Azure/">Windows Azure</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/01/Azure-Websites1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Windows Azure Websitesが簡単すぎる
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:teppeee.github.io">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">teppeeeのブログ</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2015 teppeee<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
