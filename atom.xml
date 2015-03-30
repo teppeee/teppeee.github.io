@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Blog on GithubPages]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-03-28T23:50:40.300Z</updated>
+  <updated>2015-03-30T21:23:41.966Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[SSQLDatabaseを使ってみる]]></title>
+    <title><![CDATA[SQLDatabaseを使ってみる]]></title>
     <link href="http://teppeee.github.io/2015/03/29/SQLDatabase1/"/>
     <id>http://teppeee.github.io/2015/03/29/SQLDatabase1/</id>
     <published>2015-03-28T23:30:52.000Z</published>
-    <updated>2015-03-28T23:49:23.000Z</updated>
+    <updated>2015-03-30T21:23:08.000Z</updated>
     <content type="html"><![CDATA[<p>SQLDatabaseはMicrosoftが提供するクラウド上のRDBです。<br>SQLServerに比べると機能は少ないようですが、<br>PaaSなのでMicrosoftがいろいろと管理してくれます。</p>
 <p><a id="more"></a></p>
 <h2 id="SQLDatabase作成">SQLDatabase作成</h2>
