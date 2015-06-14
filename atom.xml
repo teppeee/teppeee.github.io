@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Blog on GithubPages]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teppeee.github.io/"/>
-  <updated>2015-03-30T21:23:41.966Z</updated>
+  <updated>2015-06-14T15:21:03.223Z</updated>
   <id>http://teppeee.github.io/</id>
   
   <author>
@@ -13,6 +13,63 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Microsoft Azure Storage BLOBを使ってみる]]></title>
+    <link href="http://teppeee.github.io/2015/06/15/azure-BLOB/"/>
+    <id>http://teppeee.github.io/2015/06/15/azure-BLOB/</id>
+    <published>2015-06-14T15:17:29.000Z</published>
+    <updated>2015-06-14T15:20:39.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Azureのストレージ">Azureのストレージ</h1>
+<p>BLOB、テーブル、キュー、ファイルと4種類あり、用途に合わせて使えるようになっています。今回はBLOBを使ってみます。BLOBはどんなデータも入れることができ、画像などの配信にも利用することができます。</p>
+<a id="more"></a>
+
+<h1 id="準備">準備</h1>
+<h2 id="コンテナの作成">コンテナの作成</h2>
+<p>BLOBはコンテナというグループの中にいれます。<br>Azureのポータルからストレージとコンテナーを作成しておきます。</p>
+<p>コンテナーはストレージのコンテナーのタブより追加ボタンを押すと作成できます。</p>
+<p><img src="http://teppeee.github.io/img/createcontainer.png" alt="createcontainer.png"></p>
+<p>testcontaierというプライベートなコンテナーを作成。</p>
+<p><img src="http://teppeee.github.io/img/testcontaier.png" alt="testcontaier.png"></p>
+<h2 id="nuget_からライブラリをインストール">nuget からライブラリをインストール</h2>
+<p>Microsoft Azure Storage クライアント ライブラリがあり、非常に簡単に使えるようになっています。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Install</span>-Package WindowsAzure.Storage -<span class="keyword">Version</span> <span class="number">4.3</span><span class="number">.0</span></div></pre></td></tr></table></figure>
+
+<h2 id="確認用に">確認用に</h2>
+<p>VisualStudio上からも確認できますが、ストレージの操作はAzure Storage Explorer を入れておくと便利です。手動でファイルをアップロードしたい場合はこれを使うのがよさそうです。</p>
+<ul>
+<li><a href="https://azurestorageexplorer.codeplex.com/" target="_blank" rel="external">https://azurestorageexplorer.codeplex.com/</a></li>
+</ul>
+<h1 id="さっそく使ってみる">さっそく使ってみる</h1>
+<h2 id="using">using</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> Microsoft.WindowsAzure.Storage;</div><div class="line"><span class="keyword">using</span> Microsoft.WindowsAzure.Storage.Blob;</div></pre></td></tr></table></figure>
+
+<h2 id="BLOBに接続してコンテナーの参照取得">BLOBに接続してコンテナーの参照取得</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//アカウントキーはアクセスキーの管理より確認</span></div><div class="line">CloudStorageAccount storageAccount = CloudStorageAccount.Parse(<span class="string">"DefaultEndpointsProtocol=https;AccountName=ストレージアカウント名;AccountKey=アカウントキー"</span>);</div><div class="line"></div><div class="line">CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();</div><div class="line"></div><div class="line">CloudBlobContainer container = blobClient.GetContainerReference(<span class="string">"testcontainer"</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="アップロードとダウンロード">アップロードとダウンロード</h2>
+<p>あとは<code>GetBlockBlobReference</code>でパスの参照を取得してアップロードしたりダウンロードしたりします。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CloudBlockBlob blockBlob = container.GetBlockBlobReference(<span class="string">"test.jpg"</span>);</div><div class="line"></div><div class="line"><span class="comment">//アップロード</span></div><div class="line"><span class="keyword">using</span> (<span class="keyword">var</span> fileStream = System.IO.File.OpenRead(<span class="string">"アップロード元のパス"</span>))</div><div class="line">{</div><div class="line">    blockBlob.UploadFromStream(fileStream);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//ダウンロード</span></div><div class="line">blockBlob.DownloadToFile(<span class="string">"ダウンロード先のパス"</span>, System.IO.FileMode.CreateNew);</div></pre></td></tr></table></figure>
+
+<p>メソッドはもちろん非同期対応もしています。</p>
+<p>Azure Storage Explorerから確認するとこのようになっています。<br><img src="http://teppeee.github.io/img/storageexplorer.jpg" alt="storageexplorer.jpg"></p>
+<h2 id="フォルダについて">フォルダについて</h2>
+<p>パスを<code>/</code>で区切るとフォルダになるようでした。<br>フォルダの参照は<code>GetDirectoryReference</code>で取得できます。<br>参照を取得したあと中身の一覧は<code>ListBlobs()</code>で取得できます。</p>
+<h1 id="感想">感想</h1>
+<p>Windowsのファイルシステムに近い感覚で使用でき、思ったより使い勝手がよさそうです。<br>他にもいろいろできるようなのでぜひ使ってみてください。<br><a href="https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-use-blobs/" target="_blank" rel="external">https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-use-blobs/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Azureのストレージ">Azureのストレージ</h1>
+<p>BLOB、テーブル、キュー、ファイルと4種類あり、用途に合わせて使えるようになっています。今回はBLOBを使ってみます。BLOBはどんなデータも入れることができ、画像などの配信にも利用することができます。</p>
+]]>
+    
+    </summary>
+    
+      <category term="MicrosoftAzure" scheme="http://teppeee.github.io/tags/MicrosoftAzure/"/>
+    
+      <category term="BLOB" scheme="http://teppeee.github.io/tags/BLOB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SQLDatabaseを使ってみる]]></title>
